@@ -1,0 +1,10 @@
+# npm and build, allow index.html
+node_modules/
+public/*
+!public/index.html
+
+# mac
+.DS_STORE/
+
+# vim
+*.swp

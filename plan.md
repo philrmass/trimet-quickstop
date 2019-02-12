@@ -1,3 +1,0 @@
-# TriMet QuickStop
-
-## Tasks
