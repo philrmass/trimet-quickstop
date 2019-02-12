@@ -1,9 +1,10 @@
 import React from 'react';
+import ArrivalList from './ArrivalList';
 
 function App() {
   return (
     <div>
-      <h1>React Application</h1>
+      <ArrivalList />
     </div>
   );
 }
