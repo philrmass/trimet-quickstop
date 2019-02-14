@@ -6,6 +6,32 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|gif|jp(e*)g|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8000,
+            name: 'images/[hash]-[name].[ext]'
+          }
+        }
+      },
+      {
+        test:/\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[local]___[hash:base64:5]'
+            }
+          }
+        ]
+      },
+      {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
         exclude: /node_modules/,
