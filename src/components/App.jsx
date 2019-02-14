@@ -1,10 +1,12 @@
 import React from 'react';
+import NavBar from './NavBar';
 import ArrivalList from './ArrivalList';
 
 function App() {
   return (
     <div>
-      <ArrivalList />
+      <NavBar/>
+      <ArrivalList/>
     </div>
   );
 }

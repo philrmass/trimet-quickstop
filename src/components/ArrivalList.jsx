@@ -1,5 +1,6 @@
 import React from 'react';
 import Arrival from './Arrival';
+import styles from './ArrivalList.css';
 
 let list = [
   {
@@ -27,7 +28,7 @@ let list = [
 
 function ArrivalList() {
   return (
-    <div>
+    <div className={styles.arrivalList}>
       {list.map((arrival, index) => 
         <Arrival 
           key={index}
