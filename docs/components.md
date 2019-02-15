@@ -22,7 +22,11 @@ I created these sketches of the various dynamic states of the app in order to so
 
 #### Map Overlay (map showing vehicle/stop location)
 
+<img src="map.png" width="425px"/>
+
 #### Set Stop Overlay (stop selection by location/address/line)
+
+<img src="stop.png" width="450px"/>
 
 #### Login Overlay (menu when logged out)
 
