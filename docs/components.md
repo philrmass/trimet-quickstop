@@ -16,6 +16,38 @@ App
     - QuickstopButton
     - RecentList
       - Recent (xN)
+  - Graph
+    - GraphIcon (xN)
+  - ArrivalList
+    - Arrival (xN)
+      - ArrivalIcon
+- MapPane
+  - CloseButton
+  - Map
+    - MapIcon
+- SearchPane
+  - CloseButton
+  - SearchBar
+  - NearButton
+  - ResultList
+    - Result (xN)
+  - StopSet
+    - SetButton
+- MenuPane
+  - CloseButton
+  - User
+    - Login
+      - RegisterButton
+      - LoginForm
+      - LoginButton
+    - Logout
+      - LogoutButton
+    - Register
+      - RegisterForm
+      - RegisterButton
+  - Status
+  - QuickstopButton
+
 
 ## Application Sketches
 
