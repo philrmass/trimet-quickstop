@@ -1,12 +1,13 @@
 import React from 'react';
-import styles from './NavBar.css';
+import styles from './MenuButton.css';
+import menuIcon from '../assets/images/menuIcon.svg';
 
-function NavBar() {
+function MenuButton() {
   return (
     <div className={styles.menuButton}>
-      <span>Menu</span>
+      <img src={menuIcon} className={styles.menuIcon}/>
     </div>
   );
 }
 
-export default NavBar;
+export default MenuButton;
