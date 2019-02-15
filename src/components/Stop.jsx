@@ -8,8 +8,8 @@ function Stop() {
   return (
     <div className={styles.stop}>
       <CloseButton/>
-      <span>SW 5th & Oak MAX Station</span>
-      <span>Southbound - Stop 7627</span>
+      <div>SW 5th & Oak MAX Station</div>
+      <div>Southbound - Stop 7627</div>
       <ChangeButton/>
       <QuickstopButton/>
     </div>

@@ -29,7 +29,7 @@ App
     - Result (xN)
   - RecentList
     - Recent (xN)
-  - StopSet
+  - SetStop
     - SetButton
 - MenuPane
   - CloseButton
