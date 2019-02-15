@@ -4,6 +4,20 @@
 
 ## Component Tree
 
+App  
+| |_ NavBar  
+|    | | |\_ Menu Button  
+|    | |\_\_\_ AmButton  
+|    |\_\_\_\_ PmButton  
+|  
+|_ StopPane  
+   |_ Stop  
+      ||||_ CloseButton  
+      |||__ ChangeButton  
+      ||___ QuickstopButton  
+      |____ RecentList  
+            |_ Recent  
+
 ## Application Sketches
 
 I created these sketches of the various dynamic states of the app in order to sort out the component hierarchy
