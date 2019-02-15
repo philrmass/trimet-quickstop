@@ -4,19 +4,18 @@
 
 ## Component Tree
 
-App  
-| |_ NavBar  
-|    | | |\_ Menu Button  
-|    | |\_\_\_ AmButton  
-|    |\_\_\_\_ PmButton  
-|  
-|_ StopPane  
-   |_ Stop  
-      ||||_ CloseButton  
-      |||__ ChangeButton  
-      ||___ QuickstopButton  
-      |____ RecentList  
-            |_ Recent  
+App
+- NavBar
+  - MenuButton
+  - AmButton
+  - PmButton
+- StopPane
+  - Stop
+    - CloseButton
+    - ChangeButton
+    - QuickstopButton
+    - RecentList
+      - Recent (xN)
 
 ## Application Sketches
 
