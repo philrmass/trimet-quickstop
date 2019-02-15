@@ -10,24 +10,24 @@ I created these sketches of the various dynamic states of the app in order to so
 
 #### Normal Mode (morning/evening stop set)
 
-![SetupMode](setup.png)
-
 #### Setup Mode (morning/evening stop not set)
 
-![SetupMode](setup.png | width=500)
+<img src="setup.png" width="375px"/>
 
 #### QuickStop Mode (quick stop set)
 
-![QuickStopMode](quick.png | width=500x)
+<img src="quick.png" width="450px"/>
 
 #### Map Overlay (map showing vehicle/stop location)
-
-![QuickStopMode](quick.png)
 
 #### Set Stop Overlay (stop selection by location/address/line)
 
 #### Login Overlay (menu when logged out)
 
+<img src="login.png" width="450px"/>
+
 #### Logout Overlay (menu when logged in)
+
+<img src="logout.png" width="500px"/>
 
 #### Register Overlay (menu when registering)
