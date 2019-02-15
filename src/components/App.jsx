@@ -1,12 +1,13 @@
 import React from 'react';
 import NavBar from './NavBar';
-import ArrivalList from './ArrivalList';
+import StopPane from './StopPane';
+import styles from './App.css';
 
 function App() {
   return (
-    <div>
+    <div className={styles.app}>
       <NavBar/>
-      <ArrivalList/>
+      <StopPane/>
     </div>
   );
 }
