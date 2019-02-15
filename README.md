@@ -12,13 +12,17 @@ _The spiritual progenitor of this project was an [Angular application](https://g
 
 To build the project
 
+## Design and Planning
+
+You can see the project's component tree and layout [here](docs/components.md)
+
 ## Support and Contact Details
 
 If you have any issues or questions, please email me at philrmass@gmail.com
 
 ## Technologies
 
-_Created in JavasScript using React and Express_
+Created in JavasScript using React and Express
 
 ## Legal
 
