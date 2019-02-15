@@ -10,6 +10,8 @@ I created these sketches of the various dynamic states of the app in order to so
 
 #### Normal Mode (morning/evening stop set)
 
+<img src="normal.png" width="475px"/>
+
 #### Setup Mode (morning/evening stop not set)
 
 <img src="setup.png" width="375px"/>
@@ -31,3 +33,5 @@ I created these sketches of the various dynamic states of the app in order to so
 <img src="logout.png" width="500px"/>
 
 #### Register Overlay (menu when registering)
+
+<img src="register.png" width="450px"/>
