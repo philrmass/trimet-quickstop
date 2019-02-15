@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   font-size: 1.6rem;
   background-color: #f8f8f8;
