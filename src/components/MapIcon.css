@@ -1,0 +1,6 @@
+.mapIcon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px dotted #f00;
+}
