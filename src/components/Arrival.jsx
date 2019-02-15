@@ -1,10 +1,12 @@
 import React from 'react';
+import ArrivalIcon from './ArrivalIcon';
 import PropTypes from 'prop-types';
 import styles from './Arrival.css';
 
 function Arrival(props) {
   return (
     <div className={styles.arrival}>
+      <ArrivalIcon/>
       <div>{props.line}</div>
       <span>{props.destination}</span>
       <span>{props.scheduled}</span>

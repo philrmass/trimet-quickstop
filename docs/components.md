@@ -12,8 +12,6 @@ App
     - CloseButton
     - ChangeButton
     - QuickstopButton
-    - RecentList
-      - Recent (xN)
   - Graph
     - GraphIcon (xN)
   - ArrivalList
@@ -29,6 +27,8 @@ App
   - NearButton
   - ResultList
     - Result (xN)
+  - RecentList
+    - Recent (xN)
   - StopSet
     - SetButton
 - MenuPane
