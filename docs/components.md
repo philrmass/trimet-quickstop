@@ -1,7 +1,5 @@
 # TriMet QuickStop Components
 
-### By **Phil Mass**
-
 ## Component Tree
 
 App
