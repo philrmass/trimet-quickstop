@@ -5,8 +5,8 @@ import styles from './SetStop.css';
 function SetStop() {
   return (
     <div className={styles.setStop}>
-      <span>Stop ID</span>
-      <input type="text" />
+      <label htmlFor="setStop">Stop ID</label>
+      <input id="setStop" type="text" />
       <SetButton/>
     </div>
   );
