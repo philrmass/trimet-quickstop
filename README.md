@@ -32,6 +32,7 @@ npm run build
 ```console
 npm start
 ```
+Open up a browser window to the address **localhost:8080** and you should see the app
 
 ## Design and Planning
 
