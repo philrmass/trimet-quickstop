@@ -9,7 +9,7 @@ function Stop() {
     <div className={styles.stop}>
       <CloseButton/>
       <div>SW 5th & Oak MAX Station</div>
-      <div>Southbound - Stop 1</div>
+      <div>Southbound - Stop 2</div>
       <ChangeButton/>
       <QuickstopButton/>
     </div>

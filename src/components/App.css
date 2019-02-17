@@ -1,3 +1,9 @@
 .app {
-  background-color: #ffd;
+}
+
+@media only screen and (min-width: 768px) {
+  .app {
+    border-left: 4px solid #000;
+    border-right: 4px solid #000;
+  }
 }
