@@ -1,35 +1,9 @@
 .container {
-  background-color: #f00;
-}
-
-/*
-@media only screen and (max-width: 1250px) {
-  .container {
-    background-color: #f80;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .container {
-    background-color: #ff0;
-  }
+  background-color: #f80;
 }
 
 @media only screen and (max-width: 768px) {
   .container {
-    background-color: #8f0;
+    background-color: #f8f4e0;
   }
 }
-
-@media only screen and (max-width: 500px) {
-  .container {
-    background-color: #08f;
-  }
-}
-
-@media only screen and (max-width: 250px) {
-  .container {
-    background-color: #80f;
-  }
-}
-*/

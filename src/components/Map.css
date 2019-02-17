@@ -3,9 +3,3 @@
   padding-top: 50%;
   border: 2px dotted #0f0;
 }
-
-@media only screen and (max-width: 768px) {
-  .map {
-    background-color: #80ff80;
-  }
-}

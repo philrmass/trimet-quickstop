@@ -7,7 +7,7 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode production",
-    "ghdeploy": "gh-pages -d public",
+    "ghdeploy": "webpack --mode production && gh-pages -d public",
     "lint": "eslint src/** src/**/**",
     "fix": "eslint src/** src/**/** --fix"
   },

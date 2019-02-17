@@ -2,7 +2,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('cache').then(function(cache) {
       console.log('sw install');
-      return cache.add('/trimet-quickstop/index.html');
+      return cache.add('/trimet-quickstop/logo-512.png');
     })
   );
 });
