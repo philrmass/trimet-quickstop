@@ -7,11 +7,11 @@ body {
   box-sizing: border-box;
   margin: 0;
   font-size: 1.6rem;
-  background-color: #f8f8f8;
+  background-color: #fff0e0;
 }
 
 @media only screen and (max-width: 768px) {
   body {
-    background-color: #fffff8;
+    background-color: #f8f8f8;
   }
 }
