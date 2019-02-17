@@ -9,7 +9,7 @@
   "description": "TriMet commuter app",
   "icons": [
     {
-      "src": "/minimal-pwa/../src/assets/images/logo-512.png",
+      "src": "logo-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
