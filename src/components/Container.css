@@ -1,9 +1,3 @@
 .container {
-  background-color: #f80;
-}
-
-@media only screen and (max-width: 768px) {
-  .container {
-    background-color: #f8f4e0;
-  }
+  background-color: #fb0;
 }

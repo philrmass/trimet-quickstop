@@ -1,9 +1,12 @@
 .app {
+  height: 100vh;
+  margin: auto;
+  background-color: #30f;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
   .app {
-    border-left: 4px solid #000;
-    border-right: 4px solid #000;
+    width: 600px;
+    box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.15), 6px 0 20px 0 rgba(0, 0, 0, 0.2), -4px 0 8px 0 rgba(0, 0, 0, 0.15), -6px 0 20px 0 rgba(0, 0, 0, 0.2);
   }
 }
