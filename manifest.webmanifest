@@ -1,0 +1,17 @@
+{
+  "name": "TriMet QuickStop",
+  "short_name": "QuickStop",
+  "start_url": "/trimet-quickstop/index.html",
+  "scope": "/trimet-quickstop/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "description": "TriMet commuter app",
+  "icons": [
+    {
+      "src": "/minimal-pwa/../src/assets/images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

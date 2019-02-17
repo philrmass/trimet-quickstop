@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>React Application</title>
+    <title>TriMet QuickStop</title>
+    <meta charset="utf-8">
+    <meta name="description" content="TriMet commuter app">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    <link rel="manifest" href="/trimet-quickstop/manifest.webmanifest">
   </head>
   <body>
     <div id="app"></div>
     <script src="./bundle.js"></script>
+    <script>
+      if("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/trimet-quickstop/sw.js")
+          .then(function() { console.log("Registered service worker"); });
+      }
+    </script>
   </body>
 </html>
