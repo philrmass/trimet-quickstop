@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './MenuButton.css';
-import menuIcon from '../assets/images/menuIcon.svg';
 
 function MenuButton() {
   return (
     <div className={styles.menuButton}>
-      <img src={menuIcon} className={styles.menuIcon}/>
+      <div className={styles.iconBar}></div>
+      <div className={styles.iconBar}></div>
+      <div className={styles.iconBar}></div>
     </div>
   );
 }

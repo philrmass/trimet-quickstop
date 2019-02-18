@@ -1,8 +1,12 @@
 .navBar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 7rem;
-  background-color: #ffffff;
-  border: 2px dotted #80f;
+  height: 2.5em;
+  padding: 0 0.4em;
+  background-color: var(--pm-color);
+  color: var(--light-text-color);
+  font-family: var(--headline-font);
+  font-size: 1.5em;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 4px 10px 0 rgba(0, 0, 0, 0.16);
 }

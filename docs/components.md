@@ -3,48 +3,49 @@
 ## Component Tree
 
 App
-- NavBar
-  - MenuButton
-  - AmButton
-  - PmButton
-- StopPane
-  - Stop
+- Container
+  - NavBar
+    - MenuButton
+    - AmButton
+    - PmButton
+  - StopPane
+    - Stop
+      - CloseButton
+      - ChangeButton
+      - QuickstopButton
+    - Graph
+      - GraphIcon (xN)
+    - ArrivalList
+      - Arrival (xN)
+        - ArrivalIcon
+  - MapPane
     - CloseButton
-    - ChangeButton
+    - Map
+      - MapIcon
+  - SearchPane
+    - CloseButton
+    - SearchBar
+    - NearButton
+    - ResultList
+      - Result (xN)
+    - RecentList
+      - Recent (xN)
+    - SetStop
+      - SetButton
+  - MenuPane
+    - CloseButton
+    - User
+      - Login
+        - RegisterButton
+        - LoginForm
+        - LoginButton
+      - Logout
+        - LogoutButton
+      - Register
+        - RegisterForm
+        - RegisterButton
+    - Status
     - QuickstopButton
-  - Graph
-    - GraphIcon (xN)
-  - ArrivalList
-    - Arrival (xN)
-      - ArrivalIcon
-- MapPane
-  - CloseButton
-  - Map
-    - MapIcon
-- SearchPane
-  - CloseButton
-  - SearchBar
-  - NearButton
-  - ResultList
-    - Result (xN)
-  - RecentList
-    - Recent (xN)
-  - SetStop
-    - SetButton
-- MenuPane
-  - CloseButton
-  - User
-    - Login
-      - RegisterButton
-      - LoginForm
-      - LoginButton
-    - Logout
-      - LogoutButton
-    - Register
-      - RegisterForm
-      - RegisterButton
-  - Status
-  - QuickstopButton
 
 
 ## Application Sketches

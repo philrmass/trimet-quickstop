@@ -1,4 +1,23 @@
 .stop {
-  height: 14rem;
-  border: 2px dotted #00f;
+  padding: 0.5em;
+  font-size: 1.5em;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+}
+
+.headline {
+  font-family: var(--headline-font);
+  font-size: 1.3em;
+}
+
+.quick {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0 0 0;
 }

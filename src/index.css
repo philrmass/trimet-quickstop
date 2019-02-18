@@ -1,10 +1,20 @@
+:root {
+  --am-color: #c89400;
+  --pm-color: #330090;
+  --dark-text-color: #384042;
+  --light-text-color: #f0f0f0;
+  --body-font: 'Source Sans Pro', sans-serif;
+  --headline-font: 'Oswald', sans-serif;
+}
+
 html {
   font-family: Verdana, sans-serif;
   font-size: 10px;
+  font-family: var(--body-font);
+  color: var(--dark-text-color);
 }
 
 body {
-  box-sizing: border-box;
   margin: 0;
   background-color: #f0f2f4;
   font-size: 1.6rem;

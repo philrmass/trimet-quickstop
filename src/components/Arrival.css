@@ -1,4 +1,5 @@
 .arrival {
+  padding: 0.5em 0;
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
   align-items: center;

@@ -7,11 +7,19 @@ import styles from './Stop.css';
 function Stop() {
   return (
     <div className={styles.stop}>
-      <CloseButton/>
-      <div>SW 5th & Oak MAX Station</div>
-      <div>Southbound - Stop 2</div>
-      <ChangeButton/>
-      <QuickstopButton/>
+      <div className={styles.top}>
+        <div className={styles.text}>
+          <div className={styles.headline}>SW 5th & Oak MAX Station</div>
+          <div>
+            Southbound - Stop 2
+            <ChangeButton/>
+          </div>
+        </div>
+        <CloseButton/>
+      </div>
+      <div className={styles.quick}>
+        <QuickstopButton/>
+      </div>
     </div>
   );
 }

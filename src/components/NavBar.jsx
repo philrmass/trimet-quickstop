@@ -7,15 +7,15 @@ import styles from './NavBar.css';
 function NavBar() {
   return (
     <div className={styles.navBar}>
-      <MenuButton/>
+      <MenuButton className={styles.button}/>
       <span>TriMet QuickStop </span>
-      <AmButton/>/<PmButton/>
+      <span>
+        <AmButton className={styles.button}/>
+        /
+        <PmButton/>
+      </span>
     </div>
   );
 }
 
-/*
-      <TimeButton/>
-      <TimeButton/>
-      */
 export default NavBar;
