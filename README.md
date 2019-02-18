@@ -36,7 +36,9 @@ Open up a browser window to the address **localhost:8080** and you should see th
 
 ## Design and Planning
 
-You can see the project's component tree and layout [here](docs/components.md)
+* [Component Tree and Layout](docs/components.md)
+* [Design Ideas](docs/design.md)
+* [Completed and Remaining Tasks](docs/tasks.md)
 
 ## Known Bugs and Missing Features
 
