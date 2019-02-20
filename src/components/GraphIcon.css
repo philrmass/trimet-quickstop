@@ -1,6 +1,11 @@
 .graphIcon {
   display: inline-block;
-  width: 1em;
-  height: 1em;
-  border: 2px dotted #0f0;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background-color: #f77700;
+  color: #484848;
+  text-align: center;
+  font-weight: bold;
+  line-height: 150%;
 }

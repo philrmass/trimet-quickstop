@@ -4,6 +4,7 @@
 }
 
 .headline {
+  margin-bottom: 0.3em;
   font-family: var(--headline-font);
   font-size: 1.3em;
 }
@@ -11,5 +12,5 @@
 .quickBox {
   display: flex;
   justify-content: center;
-  margin: 1em 0 0 0;
+  margin: 1em 0 0.5em 0;
 }

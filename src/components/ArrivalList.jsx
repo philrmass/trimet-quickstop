@@ -28,7 +28,9 @@ let list = [
 
 function ArrivalList() {
   return (
-    <div className={styles.arrivalList}>
+    <section className={styles.arrivalList}>
+      <header className={styles.header}>
+      </header>
       {list.map((arrival, index) => 
         <Arrival 
           key={index}
@@ -38,7 +40,7 @@ function ArrivalList() {
           estimatedMin={arrival.estimatedMin}
           estimatedSec={arrival.estimatedSec} />
       )}
-    </div>
+    </section>
   );
 }
 

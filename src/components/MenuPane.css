@@ -1,3 +1,4 @@
 .menuPane {
+  display: none;
   border: 2px dotted #0f0;
 }

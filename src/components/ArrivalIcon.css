@@ -1,6 +1,11 @@
 .arrivalIcon {
   display: inline-block;
-  width: 1em;
-  height: 1em;
-  border: 2px dotted #880;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: #f77700;
+  color: #484848;
+  text-align: center;
+  font-weight: bold;
+  line-height: 200%;
 }

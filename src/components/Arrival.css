@@ -1,7 +1,10 @@
 .arrival {
-  padding: 0.5em 0;
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  border: 2px dotted #f00;
+  padding: 0.1em;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  margin: 0.5em 0;
+  background-image: linear-gradient(#f8f8f8, white, #f8f8f8); 
 }
