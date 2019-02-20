@@ -9,6 +9,7 @@ let list = [
     scheduled: '10:30 PM',
     estimatedMin: 7,
     estimatedSec: 5,
+    status: 'On Time'
   },
   {
     line: 'green',
@@ -16,6 +17,7 @@ let list = [
     scheduled: '10:52 PM',
     estimatedMin: 21,
     estimatedSec: 20,
+    status: '8 min late'
   },
   {
     line: 'orange',
@@ -23,6 +25,7 @@ let list = [
     scheduled: '11:00 PM',
     estimatedMin: 28,
     estimatedSec: 40,
+    status: 'No ETA'
   }
 ];
 
@@ -38,7 +41,8 @@ function ArrivalList() {
           destination={arrival.destination}
           scheduled={arrival.scheduled}
           estimatedMin={arrival.estimatedMin}
-          estimatedSec={arrival.estimatedSec} />
+          estimatedSec={arrival.estimatedSec}
+          status={arrival.status} />
       )}
     </section>
   );

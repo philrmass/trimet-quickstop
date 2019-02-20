@@ -4,7 +4,6 @@ import styles from './GraphIcon.css';
 function GraphIcon() {
   return (
     <div className={styles.graphIcon}>
-      M
     </div>
   );
 }

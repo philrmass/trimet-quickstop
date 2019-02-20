@@ -1,7 +1,9 @@
 .graphIcon {
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
+  position: relative;
+  left: 0%;
+  width: 1.2em;
+  height: 1.2em;
   border-radius: 50%;
   background-color: #f77700;
   color: #484848;

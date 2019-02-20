@@ -1,6 +1,6 @@
 .graph {
-  padding: 0.2em;
-  background-image: linear-gradient(#c0c2c5, #c4c6c9, #c0c2c5); 
-  border-top: 1px solid #b4b6b8;
-  border-bottom: 1px solid #b4b6b8;
+  position: relative;
+  height: 1.2em;
+  padding: 0.4em;
+  background-color: var(--pm-color);
 }
