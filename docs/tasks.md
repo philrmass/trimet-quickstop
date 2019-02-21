@@ -1,9 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Convert container to a component, log lifecycle methods
-* connect am/pm buttons to container functions
-* Switch am/pm by click
-* Add is pm to state, set by time of day in component did mount
 * change am/pm color using global style
 
 * Convert change button to button
@@ -39,3 +35,7 @@
 * Create a general button with children name, callback, and isActive
 * Combine am/pm into buttons
 * Set button class styling in parent, transparent hover color
+* Convert container to a component, log lifecycle methods
+* connect am/pm buttons to container functions
+* Switch am/pm by click
+* Add is pm to state, set by time of day in component did mount

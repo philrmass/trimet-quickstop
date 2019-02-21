@@ -1,6 +1,7 @@
 :root {
   --am-color: #c89400;
   --pm-color: #330090;
+  --time-color: var(--am-color);
   --dark-text-color: #384042;
   --light-text-color: #f0f0f0;
   --body-font: 'Source Sans Pro', sans-serif;

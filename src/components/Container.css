@@ -1,3 +1,6 @@
 .container {
+  background-color: var(--time-color);
+  /*
   background-color: #ffffff;
+  */
 }

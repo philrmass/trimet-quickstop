@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MenuIcon from './MenuIcon';
 import Button from './Button';
 import styles from './NavBar.css';
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div className={styles.navBar}>
       <Button>
@@ -12,17 +13,24 @@ function NavBar() {
       <span>TriMet QuickStop </span>
       <span>
         <Button
-          isActive={false}>
+          isActive={false}
+          onClick={props.onAmClick}>
           AM
         </Button>
         /
         <Button
-          isActive={true}>
+          isActive={true}
+          onClick={props.onPmClick}>
           PM
         </Button>
       </span>
     </div>
   );
 }
+
+NavBar.propTypes = {
+  onAmClick: PropTypes.func,
+  onPmClick: PropTypes.func
+};
 
 export default NavBar;
