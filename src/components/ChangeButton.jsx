@@ -3,9 +3,9 @@ import styles from './ChangeButton.css';
 
 function ChangeButton() {
   return (
-    <div className={styles.changeButton}>
+    <button className={styles.changeButton}>
       Change
-    </div>
+    </button>
   );
 }
 

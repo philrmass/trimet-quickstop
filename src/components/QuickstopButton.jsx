@@ -3,9 +3,9 @@ import styles from './QuickstopButton.css';
 
 function QuickstopButton() {
   return (
-    <div className={styles.quickstopButton}>
+    <button className={styles.quickstopButton}>
       QuickStop
-    </div>
+    </button>
   );
 }
 

@@ -3,9 +3,9 @@ import styles from './PmButton.css';
 
 function PmButton() {
   return (
-    <div className={styles.pmButton}>
+    <button className={styles.pmButton}>
       <span>PM</span>
-    </div>
+    </button>
   );
 }
 

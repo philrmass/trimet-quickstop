@@ -3,9 +3,9 @@ import styles from './SetButton.css';
 
 function SetButton() {
   return (
-    <div className={styles.setButton}>
+    <button className={styles.setButton}>
       Set
-    </div>
+    </button>
   );
 }
 

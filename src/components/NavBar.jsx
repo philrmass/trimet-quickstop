@@ -1,16 +1,19 @@
 import React from 'react';
 import MenuButton from './MenuButton';
-import AmButton from './AmButton';
+import Button from './Button';
 import PmButton from './PmButton';
 import styles from './NavBar.css';
 
 function NavBar() {
   return (
     <div className={styles.navBar}>
-      <MenuButton className={styles.button}/>
+      <MenuButton/>
       <span>TriMet QuickStop </span>
       <span>
-        <AmButton className={styles.button}/>
+        <Button
+          isActive={true}>
+          AM
+        </Button>
         /
         <PmButton/>
       </span>

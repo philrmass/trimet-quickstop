@@ -19,3 +19,12 @@ body {
   background-color: #f0f2f4;
   font-size: 1.6rem;
 }
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
