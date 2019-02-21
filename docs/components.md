@@ -5,9 +5,9 @@
 App
 - Container
   - NavBar
-    - MenuButton
-    - AmButton
-    - PmButton
+    - Button
+      - MenuIcon
+    - Button (x2)
   - StopPane
     - Stop
       - CloseButton
