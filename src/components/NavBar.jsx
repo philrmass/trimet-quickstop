@@ -1,12 +1,14 @@
 import React from 'react';
-import MenuButton from './MenuButton';
+import MenuIcon from './MenuIcon';
 import Button from './Button';
 import styles from './NavBar.css';
 
 function NavBar() {
   return (
     <div className={styles.navBar}>
-      <MenuButton/>
+      <Button>
+        <MenuIcon/>
+      </Button>
       <span>TriMet QuickStop </span>
       <span>
         <Button

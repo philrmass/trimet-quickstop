@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './MenuButton.css';
+import styles from './MenuIcon.css';
 
-function MenuButton() {
+function MenuIcon() {
   return (
-    <div className={styles.menuButton}>
+    <div className={styles.menuIcon}>
       <div className={styles.iconBar}></div>
       <div className={styles.iconBar}></div>
       <div className={styles.iconBar}></div>
@@ -11,4 +11,4 @@ function MenuButton() {
   );
 }
 
-export default MenuButton;
+export default MenuIcon;

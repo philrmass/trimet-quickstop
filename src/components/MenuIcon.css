@@ -1,12 +1,12 @@
-.menuButton {
+.menuIcon {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 1.9em;
-  width: 1.9em;
-  padding: 0.4em;
+  height: 1.5em;
+  width: 1.3em;
+  padding: 0.2em 0.1em;
 }
 
 .iconBar {
