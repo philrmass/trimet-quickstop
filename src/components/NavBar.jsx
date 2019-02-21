@@ -1,7 +1,6 @@
 import React from 'react';
 import MenuButton from './MenuButton';
 import Button from './Button';
-import PmButton from './PmButton';
 import styles from './NavBar.css';
 
 function NavBar() {
@@ -11,11 +10,14 @@ function NavBar() {
       <span>TriMet QuickStop </span>
       <span>
         <Button
-          isActive={true}>
+          isActive={false}>
           AM
         </Button>
         /
-        <PmButton/>
+        <Button
+          isActive={true}>
+          PM
+        </Button>
       </span>
     </div>
   );
