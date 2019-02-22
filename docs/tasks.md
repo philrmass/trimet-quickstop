@@ -5,7 +5,6 @@
 * Convert change button to button
 * Show search pane on change button click, slide animation from top
 * Add input for setting am/pm stop numbers
-* Update component diagram
 
 * Add am/pm stop to state
 * Read am/pm/last updated from local storage in component did mount
@@ -25,7 +24,6 @@
 
 * Convert quick button to button
 * Convert set button to button
-* Update component diagram
 * Add css variables for all colors
 * Add version number to menu
 * Move sw.js and manifest into src
@@ -39,3 +37,4 @@
 * connect am/pm buttons to container functions
 * Switch am/pm by click
 * Add is pm to state, set by time of day in component did mount
+* Update component diagram
