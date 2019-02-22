@@ -7,45 +7,46 @@ App
   - NavBar
     - Button
       - MenuIcon
-    - Button (x2)
+    - Button (AM)
+    - Button (PM)
   - StopPane
     - Stop
-      - CloseButton
-      - ChangeButton
-      - QuickstopButton
+      - Button (Close)
+      - Button (Change) 
+      - Button (Quickstop)
     - Graph
-      - GraphIcon (xN)
+      - ArrivalIcon (xN)
     - ArrivalList
       - Arrival (xN)
         - ArrivalIcon
   - MapPane
-    - CloseButton
+    - Button (Close)
     - Map
-      - MapIcon
+      - ArrivalIcon
   - SearchPane
-    - CloseButton
+    - Button (Close)
     - SearchBar
-    - NearButton
+    - Button (Near)
     - ResultList
       - Result (xN)
     - RecentList
       - Recent (xN)
     - SetStop
-      - SetButton
+      - Button (Set)
   - MenuPane
-    - CloseButton
+    - Button (Close)
     - User
       - Login
-        - RegisterButton
+        - Button (Register)
         - LoginForm
-        - LoginButton
+        - Button (Login)
       - Logout
-        - LogoutButton
+        - Button (Logout)
       - Register
         - RegisterForm
-        - RegisterButton
+        - Button (Register)
     - Status
-    - QuickstopButton
+    - Button (Quickstop)
 
 
 ## Application Sketches
