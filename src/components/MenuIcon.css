@@ -12,5 +12,5 @@
 .iconBar {
   width: 100%;
   height: 0.18em;
-  background-color: var(--light-text-color);
+  background-color: currentColor;
 }

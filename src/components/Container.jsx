@@ -53,6 +53,7 @@ class Container extends React.Component {
     return (
       <div className={styles.container}>
         <NavBar
+          isPm={this.state.isPm}
           onAmClick={this.handleAmClick}
           onPmClick={this.handlePmClick}/>
         <StopPane/>
