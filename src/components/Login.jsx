@@ -1,15 +1,18 @@
 import React from 'react';
-import RegisterButton from './RegisterButton';
+import Button from './Button';
 import LoginForm from './LoginForm';
-import LoginButton from './LoginButton';
 import styles from './Login.css';
 
 function Login() {
   return (
     <div className={styles.login}>
-      <RegisterButton/>
+      <Button>
+        Register
+      </Button>
       <LoginForm/>
-      <LoginButton/>
+      <Button>
+        Login
+      </Button>
     </div>
   );
 }

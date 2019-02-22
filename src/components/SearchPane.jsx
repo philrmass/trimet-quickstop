@@ -1,10 +1,9 @@
 import React from 'react';
+import Button from './Button';
 import CloseButton from './CloseButton';
-import SearchBar from './SearchBar';
-import NearButton from './NearButton';
-import ResultList from './ResultList';
 import RecentList from './RecentList';
-import SetStop from './SetStop';
+import ResultList from './ResultList';
+import SearchBar from './SearchBar';
 import styles from './SearchPane.css';
 
 function SearchPane() {
@@ -12,10 +11,19 @@ function SearchPane() {
     <div className={styles.searchPane}>
       <CloseButton/>
       <SearchBar/>
-      <NearButton/>
+      Search near me
+      <Button>
+        Search
+      </Button>
       <ResultList/>
       <RecentList/>
-      <SetStop/>
+      <div className={styles.setStop}>
+        <label htmlFor="setStop">Stop ID</label>
+        <input id="setStop" type="text" />
+        <Button>
+          Set
+        </Button>
+      </div>
     </div>
   );
 }

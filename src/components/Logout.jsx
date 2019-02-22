@@ -1,11 +1,13 @@
 import React from 'react';
-import LogoutButton from './LogoutButton';
+import Button from './Button';
 import styles from './Logout.css';
 
 function Logout() {
   return (
     <div className={styles.logout}>
-      <LogoutButton/>
+      <Button>
+        Logout
+      </Button>
     </div>
   );
 }

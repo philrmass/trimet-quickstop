@@ -11,9 +11,8 @@ App
     - Button (PM)
   - StopPane
     - Stop
-      - Button (Close)
       - Button (Change) 
-      - Button (Quickstop)
+      - Button (Quickstop or Close)
       - Message (Stop)
     - Graph
       - ArrivalIcon (xN)

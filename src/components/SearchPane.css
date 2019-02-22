@@ -1,4 +1,7 @@
 .searchPane {
-  display: none;
   border: 2px dotted #880;
+}
+
+.setStop {
+  border: 2px dotted #0f0;
 }

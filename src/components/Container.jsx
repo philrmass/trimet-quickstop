@@ -11,8 +11,8 @@ class Container extends React.Component {
     super(props);
     this.state = {
       isMapOpen: false,
-      isSearchOpen: true,
-      isMenuOpen: true,
+      isSearchOpen: false,
+      isMenuOpen: false,
       isPm: false
     };
     this.handleAmClick = this.handleAmClick.bind(this);

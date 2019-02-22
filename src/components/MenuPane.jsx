@@ -1,8 +1,8 @@
 import React from 'react';
+import Button from './Button';
 import CloseButton from './CloseButton';
-import User from './User';
 import Status from './Status';
-import QuickstopButton from './QuickstopButton';
+import User from './User';
 import styles from './MenuPane.css';
 
 function MenuPane() {
@@ -11,7 +11,9 @@ function MenuPane() {
       <CloseButton/>
       <User/>
       <Status/>
-      <QuickstopButton/>
+      <Button>
+        QuickStop
+      </Button>
     </div>
   );
 }

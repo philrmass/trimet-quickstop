@@ -1,13 +1,15 @@
 import React from 'react';
 import RegisterForm from './RegisterForm';
-import RegisterButton from './RegisterButton';
+import Button from './Button';
 import styles from './Register.css';
 
 function Register() {
   return (
     <div className={styles.register}>
       <RegisterForm/>
-      <RegisterButton/>
+      <Button>
+        Register
+      </Button>
     </div>
   );
 }
