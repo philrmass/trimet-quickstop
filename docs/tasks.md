@@ -5,14 +5,11 @@
 * Convert change button to button
 * Show search pane on change button click, slide animation from top
 * Add input for setting am/pm stop numbers
+* Update component diagram
 
 * Add am/pm stop to state
 * Read am/pm/last updated from local storage in component did mount
 * Save am/pm/last updated to local storage when set
-
-* Convert quick button to button
-* Convert set button to button
-* Update component diagram
 
 * Add graph component timeline 
 * Place icons in correct location by time
@@ -26,6 +23,9 @@
 * Add trimet api arrivals call
 * Cycle through random stops for testing
 
+* Convert quick button to button
+* Convert set button to button
+* Update component diagram
 * Add css variables for all colors
 * Add version number to menu
 * Move sw.js and manifest into src

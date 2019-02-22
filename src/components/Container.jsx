@@ -17,28 +17,21 @@ class Container extends React.Component {
     };
     this.handleAmClick = this.handleAmClick.bind(this);
     this.handlePmClick = this.handlePmClick.bind(this);
-    console.log('add load');
     window.onload = (() => { this.setPm(this.checkPm()); });
-    /*
-    window.addEventListener('load', () => {
-      console.log('load');
-      this.setPm(this.checkPm());
-    });
-    */
   }
 
   checkPm() {
-    console.log('check');
     return ((new Date()).getHours() >= 12);
   }
 
   setPm(isPm) {
+    const colorName = (isPm ? '--pm-color' : '--am-color');
+    const colorValue = getComputedStyle(document.documentElement).getPropertyValue(colorName);
+    console.log('set color', colorName, colorValue);
+    document.documentElement.style.setProperty('--time-color', colorValue);
+    const check = getComputedStyle(document.documentElement).getPropertyValue('--time-color');
+    console.log('check color', check);
     this.setState({isPm: isPm});
-    let st = getComputedStyle(document.documentElement);
-    /*
-    let tc = document.documentElement.style.getProperty('--time-color');
-    */
-    console.log('time color', st.getPropertyValue('--pm-color'));
   }
 
   handleAmClick() {
@@ -50,14 +43,6 @@ class Container extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mnt');
-    /*
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('loaded');
-      this.setPm(this.checkPm());
-      console.log('set pm');
-    });
-    */
   }
 
   render() {

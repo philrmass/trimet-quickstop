@@ -1,6 +1,7 @@
 .container {
-  background-color: var(--time-color);
-  /*
   background-color: #ffffff;
-  */
+}
+
+button {
+  background-color: var(--time-color);
 }
