@@ -64,7 +64,8 @@ class Container extends React.Component {
         <StopPane
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
-        {this.state.isSearchOpen && <SearchPane/>}
+        <SearchPane
+          isOpen={this.state.isSearchOpen}/>
         {this.state.isMenuOpen && <MenuPane/>}
       </div>
     );

@@ -1,4 +1,5 @@
 .recentList {
+  display: none;
   border: 2px dotted #000;
 }
 

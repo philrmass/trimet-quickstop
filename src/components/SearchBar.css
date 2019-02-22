@@ -1,3 +1,4 @@
 .searchBar {
+  display: none;
   border: 2px dotted #f80;
 }
