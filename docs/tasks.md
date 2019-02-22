@@ -1,7 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-* change am/pm color using global style
-
 * Convert change button to button
 * Show search pane on change button click, slide animation from top
 * Add input for setting am/pm stop numbers
@@ -38,3 +36,4 @@
 * Switch am/pm by click
 * Add is pm to state, set by time of day in component did mount
 * Update component diagram
+* change am/pm color using global style

@@ -10,7 +10,7 @@ class Container extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMapOpen: true,
+      isMapOpen: false,
       isSearchOpen: true,
       isMenuOpen: true,
       isPm: false
