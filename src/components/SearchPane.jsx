@@ -10,7 +10,9 @@ import styles from './SearchPane.css';
 function SearchPane(props) {
   return (
     <div className={[styles.searchPane, (props.isOpen ? '' : styles.closed)].join(' ')}>
-      <CloseButton/>
+      <div className={styles.closeBox}>
+        <CloseButton/>
+      </div>
       <SearchBar/>
       <div className={styles.near}>
         Search near me
@@ -20,7 +22,7 @@ function SearchPane(props) {
       </div>
       <ResultList/>
       <RecentList/>
-      <div className={styles.setStop}>
+      <div className={styles.stopBox}>
         <label htmlFor="setStop">Stop ID</label>
         <input id="setStop" type="text" />
         <Button>
