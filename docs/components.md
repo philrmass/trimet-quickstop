@@ -3,7 +3,7 @@
 ## Component Tree
 
 App
-- Container
+- Container [Main application state]
   - NavBar
     - Button
       - MenuIcon
@@ -14,6 +14,7 @@ App
       - Button (Close)
       - Button (Change) 
       - Button (Quickstop)
+      - Message (Stop)
     - Graph
       - ArrivalIcon (xN)
     - ArrivalList
@@ -23,9 +24,9 @@ App
     - Button (Close)
     - Map
       - ArrivalIcon
-  - SearchPane
+  - SearchPane [Search results state]
     - Button (Close)
-    - SearchBar
+    - SearchBar [Form input state]
     - Button (Near)
     - ResultList
       - Result (xN)
@@ -38,14 +39,14 @@ App
     - User
       - Login
         - Button (Register)
-        - LoginForm
+        - LoginForm [Form input state]
         - Button (Login)
       - Logout
         - Button (Logout)
       - Register
-        - RegisterForm
+        - RegisterForm [Form input state]
         - Button (Register)
-    - Status
+    - Message (User status)
     - Button (Quickstop)
 
 
