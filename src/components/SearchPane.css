@@ -3,12 +3,13 @@
   position: fixed;
   top: 0;
   height: 10em;
-  width: 99%;
+  width: 100vw;
   padding: 0.5em;
   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
-  transition: height 3s;
+  transition: height 0.2s;
   overflow: hidden;
+  font-size: 1.2em;
 }
 
 .closed {
@@ -27,4 +28,18 @@
 }
 
 .stopBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stopBox input {
+  width: 4em;
+  background-color: #f7f8f9;
+  border: 1px solid #c6c8da;
+  border-radius: 3px;
+}
+
+.stopBox * {
+  margin: 0.2em;
 }

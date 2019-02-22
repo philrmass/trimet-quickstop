@@ -6,7 +6,6 @@
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
   color: var(--light-text-color);
-  outline: none;
   transition: font-size 0.1s;
 }
 
