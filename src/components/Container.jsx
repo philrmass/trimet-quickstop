@@ -24,13 +24,17 @@ class Container extends React.Component {
     return ((new Date()).getHours() >= 12);
   }
 
+  setTimeOfDayColors(isPm) {
+    const accentName = (isPm ? '--accent-pm-color' : '--accent-am-color');
+    const textName = (isPm ? '--light-text-pm-color' : '--light-text-am-color');
+    const accentValue = getComputedStyle(document.documentElement).getPropertyValue(accentName);
+    const textValue = getComputedStyle(document.documentElement).getPropertyValue(textName);
+    document.documentElement.style.setProperty('--accent-color', accentValue);
+    document.documentElement.style.setProperty('--light-text-color', textValue);
+  }
+
   setPm(isPm) {
-    const colorName = (isPm ? '--pm-color' : '--am-color');
-    const colorValue = getComputedStyle(document.documentElement).getPropertyValue(colorName);
-    console.log('set color', colorName, colorValue);
-    document.documentElement.style.setProperty('--time-color', colorValue);
-    const check = getComputedStyle(document.documentElement).getPropertyValue('--time-color');
-    console.log('check color', check);
+    this.setTimeOfDayColors(isPm);
     this.setState({isPm: isPm});
   }
 

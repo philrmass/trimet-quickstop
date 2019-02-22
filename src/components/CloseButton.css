@@ -6,7 +6,7 @@
   height: 2.2rem;
   border-radius: 2px;
   color: var(--light-text-color);
-  background-color: var(--pm-color);
+  background-color: var(--accent-color);
   font-size: 2.0rem;
   font-weight: bold;
 }

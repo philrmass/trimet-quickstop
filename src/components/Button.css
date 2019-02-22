@@ -2,7 +2,7 @@
   padding: 0.1em 0.3em;
   border-radius: 3px;
   margin: 0.1em;
-  background-color: var(--time-color);
+  background-color: var(--accent-color);
   color: var(--light-text-color);
 }
 

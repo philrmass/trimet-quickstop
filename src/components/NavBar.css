@@ -4,7 +4,7 @@
   align-items: center;
   height: 2.5em;
   padding: 0 0.4em;
-  background-color: var(--time-color);
+  background-color: var(--accent-color);
   color: var(--light-text-color);
   font-family: var(--headline-font);
   font-size: 1.4em;
