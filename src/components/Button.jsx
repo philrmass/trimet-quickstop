@@ -15,7 +15,10 @@ function Button({isActive, onClick, children}) {
 Button.propTypes = {
   isActive: PropTypes.bool,
   onClick: PropTypes.func,
-  children: PropTypes.string
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ])
 };
 
 export default Button;

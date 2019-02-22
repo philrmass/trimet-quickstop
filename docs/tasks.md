@@ -1,6 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Convert change button to button
 * Show search pane on change button click, slide animation from top
 * Add input for setting am/pm stop numbers
 
@@ -20,8 +19,6 @@
 * Add trimet api arrivals call
 * Cycle through random stops for testing
 
-* Convert quick button to button
-* Convert set button to button
 * Add css variables for all colors
 * Add version number to menu
 * Move sw.js and manifest into src
@@ -37,3 +34,6 @@
 * Add is pm to state, set by time of day in component did mount
 * Update component diagram
 * change am/pm color using global style
+* Convert change button to button
+* Convert quick button to button
+* Convert set button to button
