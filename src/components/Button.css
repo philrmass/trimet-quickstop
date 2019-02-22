@@ -8,12 +8,18 @@
   outline: none;
 }
 
-.button:focus,
 .button:hover,
 .button:active {
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: red;
 }
 
-.active {
+.button:active {
+  color: var(--dark-text-color);
+}
+
+.button:focus {
+}
+
+.current {
   font-size: 1.2em;
 }

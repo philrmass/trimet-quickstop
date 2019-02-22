@@ -13,13 +13,13 @@ function NavBar(props) {
       <span>TriMet QuickStop </span>
       <span>
         <Button
-          isActive={false}
+          isCurrent={false}
           onClick={props.onAmClick}>
           AM
         </Button>
         /
         <Button
-          isActive={true}
+          isCurrent={true}
           onClick={props.onPmClick}>
           PM
         </Button>
