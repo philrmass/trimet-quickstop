@@ -1,15 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 import styles from './Stop.css';
 
-function Stop() {
+function Stop(props) {
   return (
     <div className={styles.stop}>
       <div>
-        <div className={styles.headline}>SW 5th & Oak MAX Station</div>
-        <div>
-          Southbound - Stop 2
-          <Button>
+        <div className={styles.name}>SW 5th & Oak MAX Station</div>
+        <div className={styles.direction}>Southbound</div>
+        <div className={styles.id}>
+          Stop 2587
+          <Button
+            onClick={props.onChangeClick}>
             Change
           </Button>
         </div>
@@ -22,5 +25,9 @@ function Stop() {
     </div>
   );
 }
+
+Stop.propTypes = {
+  onChangeClick: PropTypes.func
+};
 
 export default Stop;

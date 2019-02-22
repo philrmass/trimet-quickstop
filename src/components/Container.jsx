@@ -17,6 +17,7 @@ class Container extends React.Component {
     };
     this.handleAmClick = this.handleAmClick.bind(this);
     this.handlePmClick = this.handlePmClick.bind(this);
+    this.handleChangeClick = this.handleChangeClick.bind(this);
     window.onload = (() => { this.setPm(this.checkPm()); });
   }
 
@@ -46,6 +47,10 @@ class Container extends React.Component {
     this.setPm(true);
   }
 
+  handleChangeClick() {
+    this.setState({isSearchOpen: true});
+  }
+
   componentDidMount() {
   }
 
@@ -56,7 +61,8 @@ class Container extends React.Component {
           isPm={this.state.isPm}
           onAmClick={this.handleAmClick}
           onPmClick={this.handlePmClick}/>
-        <StopPane/>
+        <StopPane
+          onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
         {this.state.isSearchOpen && <SearchPane/>}
         {this.state.isMenuOpen && <MenuPane/>}
