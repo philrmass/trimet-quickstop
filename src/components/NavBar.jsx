@@ -10,8 +10,8 @@ function NavBar(props) {
       <Button>
         <MenuIcon/>
       </Button>
-      <span>TriMet QuickStop </span>
-      <span>
+      <span className={styles.title}>TriMet QuickStop</span>
+      <span className={styles.timeButtons}>
         <Button
           isCurrent={!props.isPm}
           onClick={props.onAmClick}>
