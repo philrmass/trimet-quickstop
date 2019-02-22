@@ -1,29 +1,14 @@
 # TriMet QuickStop Design Ideas
 
-## Tasks By Section
-### NavBar
-* Choose Am and Pm colors (yellow-orange, blue-purple)
-* Choose quickstop color (dark gray)
-* Set nav bar to am, pm, or quickstop color, off-white text, off-white icon
-### StopPane
+## Tasks
+* Choose quickstop color (dark gray), enable in container
 * Layout close button, stop info, change, and quickstop buttons
-* add a global button class
 * Add gray groove with subtle shadows for graph
 * Add icons bus and streetcar
 * Do layout of arrivals information
 * Add seconds as gray superscript
 * Adjust stop name to available width
-### MenuPane
-* Add css animation for opening/closing, slide open from top
-
-### Complete
-* Choose font
-* Make chosen of am/pm larger font size
-* Add subtle drop-shadow beneath navbar
-* Add light-color light-opacity to menu button on hover
-* Add light-color light-opacity to time buttons on hover
-* Stop name larger font
-* Add icons for graph and arrivals
+* Add css animation for opening/closing menu pane, slide open from top
 
 ## Fonts
 ### Body
@@ -52,3 +37,15 @@ font-family: 'Source Sans Pro', sans-serif;
 font-family: 'Fjalla One', sans-serif;
 font-family: 'Oswald', sans-serif;
 ```
+
+### Complete
+* Choose font
+* Make chosen of am/pm larger font size
+* Add subtle drop-shadow beneath navbar
+* Add light-color light-opacity to menu button on hover
+* Add light-color light-opacity to time buttons on hover
+* Stop name larger font
+* Add icons for graph and arrivals
+* Choose Am and Pm colors (yellow-orange, blue-purple)
+* Set nav bar to am, pm, or quickstop color, off-white text, off-white icon
+* add a global button class

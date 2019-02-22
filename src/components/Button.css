@@ -4,13 +4,17 @@
   border-radius: 3px;
   margin: 0.1em;
   background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
   color: var(--light-text-color);
+  transition: font-size 0.1s;
   outline: none;
 }
 
 .button:hover,
 .button:active {
-  background-color: red;
+  background-color: var(--light-text-color);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
 
 .button:active {
