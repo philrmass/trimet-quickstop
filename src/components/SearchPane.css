@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   height: 10em;
-  width: 100vw;
+  width: 100%;
   padding: 0.5em;
   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.20);

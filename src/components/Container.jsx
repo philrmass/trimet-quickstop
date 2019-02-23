@@ -13,7 +13,9 @@ class Container extends React.Component {
       isMapOpen: false,
       isSearchOpen: false,
       isMenuOpen: false,
-      isPm: false
+      isPm: false,
+      amStop: 0,
+      pmStop: 0
     };
     this.handleAmClick = this.handleAmClick.bind(this);
     this.handlePmClick = this.handlePmClick.bind(this);
@@ -58,7 +60,11 @@ class Container extends React.Component {
   }
 
   handleSearchSet(id) {
-    console.log('#SEARCH_SET', id);
+    if(this.state.isPm) {
+      this.setState({pmStop: id});
+    } else {
+      this.setState({amStop: id});
+    }
   }
 
   componentDidMount() {
@@ -72,6 +78,7 @@ class Container extends React.Component {
           onAmClick={this.handleAmClick}
           onPmClick={this.handlePmClick}/>
         <StopPane
+          stop={this.state.isPm ? this.state.pmStop : this.state.amStop}
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
         <SearchPane

@@ -12,7 +12,7 @@ App
   - StopPane
     - Stop
       - Button (Change) 
-      - Button (Quickstop) CloseButton
+      - Button (Quickstop or Close)
       - Message (Stop)
     - Graph
       - ArrivalIcon (xN)
@@ -20,11 +20,11 @@ App
       - Arrival (xN)
         - ArrivalIcon
   - MapPane
-    - CloseButton
+    - Button (Close)
     - Map
       - ArrivalIcon
   - SearchPane [Search results state]
-    - CloseButton
+    - Button (Close)
     - SearchBar [Form input state]
     - Button (Near)
     - ResultList
@@ -34,7 +34,7 @@ App
     - SetStop
       - Button (Set)
   - MenuPane
-    - CloseButton
+    - Button (Close)
     - User
       - Login
         - Button (Register)

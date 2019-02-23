@@ -1,7 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Add input for setting am/pm stop numbers
-
 * Add am/pm stop to state
 * Read am/pm/last updated from local storage in component did mount
 * Save am/pm/last updated to local storage when set
@@ -37,3 +35,4 @@
 * Convert quick button to button
 * Convert set button to button
 * Show search pane on change button click, slide animation from top
+* Add input for setting am/pm stop numbers

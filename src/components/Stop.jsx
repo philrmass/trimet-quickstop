@@ -10,7 +10,7 @@ function Stop(props) {
         <div className={styles.name}>SW 5th & Oak MAX Station</div>
         <div className={styles.direction}>Southbound</div>
         <div className={styles.id}>
-          Stop 2587
+          Stop {props.stop}
           <Button
             onClick={props.onChangeClick}>
             Change
@@ -27,6 +27,7 @@ function Stop(props) {
 }
 
 Stop.propTypes = {
+  stop: PropTypes.number,
   onChangeClick: PropTypes.func
 };
 

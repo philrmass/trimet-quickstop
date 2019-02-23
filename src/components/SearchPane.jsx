@@ -20,7 +20,12 @@ class SearchPane extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('SUBMIT', this.state.stopId);
+    const value = parseInt(this.state.stopId);
+    if(!isNaN(value)) {
+      this.props.onSet(value);
+      this.props.onClose();
+    }
+    this.setState({stopId: ''});
   }
 
   render() {

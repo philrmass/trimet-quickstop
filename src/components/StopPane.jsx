@@ -9,6 +9,7 @@ function StopPane(props) {
   return (
     <div className={styles.stopPane}>
       <Stop
+        stop={props.stop}
         onChangeClick={props.onChangeClick}/>
       <Graph/>
       <ArrivalList/>
@@ -17,6 +18,7 @@ function StopPane(props) {
 }
 
 StopPane.propTypes = {
+  stop: PropTypes.number,
   onChangeClick: PropTypes.func
 };
 
