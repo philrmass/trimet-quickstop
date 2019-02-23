@@ -15,7 +15,8 @@ class Container extends React.Component {
       isMenuOpen: false,
       isPm: false,
       amStop: 0,
-      pmStop: 0
+      pmStop: 0,
+      lastUpdated: 0
     };
     this.handleAmClick = this.handleAmClick.bind(this);
     this.handlePmClick = this.handlePmClick.bind(this);
@@ -60,14 +61,37 @@ class Container extends React.Component {
   }
 
   handleSearchSet(id) {
+    let data = {lastUpdated: Date.now()};
     if(this.state.isPm) {
-      this.setState({pmStop: id});
+      data.pmStop = id;
     } else {
-      this.setState({amStop: id});
+      data.amStop = id;
     }
+    this.setState(data);
+    this.updateData(data);
   }
 
   componentDidMount() {
+    console.log('mount load', this.loadData());
+    this.setState(this.loadData());
+  }
+
+  loadData() {
+    const stored = window.localStorage && window.localStorage.getItem('quickStopData');
+    return JSON.parse(stored) || {};
+  }
+
+  updateData(data) {
+    if(window.localStorage) {
+      //????
+      //Object.assign(target, source);
+      //const data = JSON.stringify({amStop: id});
+      //window.localStorage.setItem('quickStopData', data);
+      //console.log('save', );
+      //??? save in local storage (am, pm, lastUpdate);
+      console.log('save', data);
+      console.log('check', this.loadData());
+    }
   }
 
   render() {

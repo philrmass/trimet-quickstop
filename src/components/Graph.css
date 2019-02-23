@@ -1,6 +1,6 @@
 .graph {
   position: relative;
-  height: 1.2em;
-  padding: 0.4em;
+  height: 3.0em;
   background-color: var(--accent-color);
+  font-size: 1.0rem;
 }
