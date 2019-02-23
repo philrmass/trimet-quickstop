@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
-import CloseButton from './CloseButton';
 import RecentList from './RecentList';
 import ResultList from './ResultList';
 import SearchBar from './SearchBar';
@@ -11,7 +10,10 @@ function SearchPane(props) {
   return (
     <div className={[styles.searchPane, (props.isOpen ? '' : styles.closed)].join(' ')}>
       <div className={styles.closeBox}>
-        <CloseButton/>
+        <Button
+          onClick={props.onClose}>
+          X
+        </Button>
       </div>
       <SearchBar/>
       <div className={styles.near}>
@@ -24,8 +26,11 @@ function SearchPane(props) {
       <RecentList/>
       <div className={styles.stopBox}>
         <label htmlFor="setStop">Stop ID</label>
-        <input id="setStop" type="text" />
-        <Button>
+        <input 
+          id="setStop" 
+          type="text"/>
+        <Button
+          onClick={props.onSet}>
           Set
         </Button>
       </div>
@@ -35,6 +40,8 @@ function SearchPane(props) {
 
 SearchPane.propTypes = {
   isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  onSet: PropTypes.func
 };
 
 export default SearchPane;

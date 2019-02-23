@@ -18,6 +18,8 @@ class Container extends React.Component {
     this.handleAmClick = this.handleAmClick.bind(this);
     this.handlePmClick = this.handlePmClick.bind(this);
     this.handleChangeClick = this.handleChangeClick.bind(this);
+    this.handleSearchClose = this.handleSearchClose.bind(this);
+    this.handleSearchSet = this.handleSearchSet.bind(this);
     window.onload = (() => { this.setPm(this.checkPm()); });
   }
 
@@ -51,6 +53,14 @@ class Container extends React.Component {
     this.setState({isSearchOpen: true});
   }
 
+  handleSearchClose() {
+    this.setState({isSearchOpen: false});
+  }
+
+  handleSearchSet(id) {
+    console.log('#SEARCH_SET', id);
+  }
+
   componentDidMount() {
   }
 
@@ -65,7 +75,9 @@ class Container extends React.Component {
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
         <SearchPane
-          isOpen={this.state.isSearchOpen}/>
+          isOpen={this.state.isSearchOpen}
+          onClose={this.handleSearchClose}
+          onSet={this.handleSearchSet}/>
         {this.state.isMenuOpen && <MenuPane/>}
       </div>
     );

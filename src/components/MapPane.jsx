@@ -1,12 +1,14 @@
 import React from 'react';
-import CloseButton from './CloseButton';
+import Button from './Button';
 import Map from './Map';
 import styles from './MapPane.css';
 
 function MapPane() {
   return (
     <div className={styles.mapPane}>
-      <CloseButton/>
+      <Button>
+        X
+      </Button>
       <Map/>
     </div>
   );
