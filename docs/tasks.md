@@ -1,19 +1,16 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Read am/pm/last updated from local storage in component did mount
-* Save am/pm/last updated to local storage when set
-
-* Add graph component timeline 
-* Place icons in correct location by time
-* Add labels for timeline
-* Add transparency arrows to timeline
-
 * Test active detection using animation frame callback
 * Reset is pm when inactive for some period
 * Add a server file for api/cache
 * Add api call when active
 * Add trimet api arrivals call
-* Cycle through random stops for testing
+* Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
+
+* Add graph component timeline 
+* Place icons in correct location by time
+* Add labels for timeline
+* Add transparency arrows to timeline
 
 * Add css variables for all colors
 * Add version number to menu
@@ -36,3 +33,5 @@
 * Show search pane on change button click, slide animation from top
 * Add input for setting am/pm stop numbers
 * Add am/pm stop to state
+* Read am/pm/last updated from local storage in component did mount
+* Save am/pm/last updated to local storage when set

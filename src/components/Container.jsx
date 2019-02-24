@@ -72,7 +72,6 @@ class Container extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mount load', this.loadData());
     this.setState(this.loadData());
   }
 
@@ -83,14 +82,8 @@ class Container extends React.Component {
 
   updateData(data) {
     if(window.localStorage) {
-      //????
-      //Object.assign(target, source);
-      //const data = JSON.stringify({amStop: id});
-      //window.localStorage.setItem('quickStopData', data);
-      //console.log('save', );
-      //??? save in local storage (am, pm, lastUpdate);
-      console.log('save', data);
-      console.log('check', this.loadData());
+      const updated = Object.assign(this.loadData(), data);
+      window.localStorage.setItem('quickStopData', JSON.stringify(updated));
     }
   }
 
