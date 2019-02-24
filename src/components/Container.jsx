@@ -4,6 +4,7 @@ import StopPane from './StopPane';
 import MapPane from './MapPane';
 import SearchPane from './SearchPane';
 import MenuPane from './MenuPane';
+import Server from '../Server';
 import styles from './Container.css';
 
 class Container extends React.Component {
@@ -16,31 +17,20 @@ class Container extends React.Component {
       isPm: false,
       amStop: 0,
       pmStop: 0,
-      lastUpdated: 0
+      lastUpdated: 0,
+      arrivals: []
     };
     this.handleAmClick = this.handleAmClick.bind(this);
     this.handlePmClick = this.handlePmClick.bind(this);
     this.handleChangeClick = this.handleChangeClick.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
     this.handleSearchSet = this.handleSearchSet.bind(this);
-    window.onload = (() => { this.setPm(this.checkPm()); });
-    document.addEventListener('visibilitychange', function() {
-      console.log('VIS', document.visibilityState, document.hidden);
+    this.arrivalsInterval;
+
+    window.onload = (() => { 
+      this.setPm(this.checkPm()); 
+      this.initializeArrivals();
     });
-    let last = Date.now();
-    const animate = () => {
-      const now = Date.now();
-      const time = (now - last);
-      if(time > 25) {
-        console.log('ANIM', time.toFixed(2));
-      } else {
-        console.log('ANIM');
-      }
-      last = now;
-      //animate something
-      requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
   }
 
   checkPm() {
@@ -78,7 +68,7 @@ class Container extends React.Component {
   }
 
   handleSearchSet(id) {
-    let data = {lastUpdated: Date.now()};
+    let data = {arrivals: [], lastUpdated: Date.now()};
     if(this.state.isPm) {
       data.pmStop = id;
     } else {
@@ -86,6 +76,7 @@ class Container extends React.Component {
     }
     this.setState(data);
     this.updateData(data);
+    this.updateArrivals();
   }
 
   componentDidMount() {
@@ -104,6 +95,28 @@ class Container extends React.Component {
     }
   }
 
+  currentStop(state) {
+    return (state.isPm ? state.pmStop : state.amStop);
+  }
+
+  initializeArrivals() {
+    this.updateArrivals();
+    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000);
+    document.addEventListener('visibilitychange', () => {
+      if(document.hidden) {
+        clearInterval(this.arrivalsInterval);
+      } else {
+        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000);
+      }
+    });
+  }
+
+  updateArrivals() {
+    Server.getArrivals(this.currentStop(this.state));
+    //promise.then set arrivals
+    //setState({arrivals: });
+  }
+
   render() {
     return (
       <div className={styles.container}>
@@ -112,7 +125,7 @@ class Container extends React.Component {
           onAmClick={this.handleAmClick}
           onPmClick={this.handlePmClick}/>
         <StopPane
-          stop={this.state.isPm ? this.state.pmStop : this.state.amStop}
+          stop={this.currentStop(this.state)}
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
         <SearchPane
