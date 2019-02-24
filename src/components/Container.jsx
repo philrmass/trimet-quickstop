@@ -24,6 +24,23 @@ class Container extends React.Component {
     this.handleSearchClose = this.handleSearchClose.bind(this);
     this.handleSearchSet = this.handleSearchSet.bind(this);
     window.onload = (() => { this.setPm(this.checkPm()); });
+    document.addEventListener('visibilitychange', function() {
+      console.log('VIS', document.visibilityState, document.hidden);
+    });
+    let last = Date.now();
+    const animate = () => {
+      const now = Date.now();
+      const time = (now - last);
+      if(time > 25) {
+        console.log('ANIM', time.toFixed(2));
+      } else {
+        console.log('ANIM');
+      }
+      last = now;
+      //animate something
+      requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
   }
 
   checkPm() {
