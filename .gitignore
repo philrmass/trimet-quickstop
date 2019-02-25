@@ -8,3 +8,6 @@ public/*
 
 # vim
 *.swp
+
+# API keys
+.env

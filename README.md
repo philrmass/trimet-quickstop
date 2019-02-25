@@ -42,7 +42,7 @@ Open up a browser window to the address **localhost:8080** and you should see th
 
 ## Known Bugs and Missing Features
 
-The app is currently under construction and is not yet a progressive web app.
+The app is currently under construction
 
 ## Support and Contact Details
 

@@ -74,8 +74,9 @@ class Container extends React.Component {
     } else {
       data.amStop = id;
     }
-    this.setState(data);
     this.updateData(data);
+    //??? get stop name, etc.
+    this.setState(data);
     this.updateArrivals();
   }
 
@@ -101,20 +102,21 @@ class Container extends React.Component {
 
   initializeArrivals() {
     this.updateArrivals();
-    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000);
+    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 60000000);
     document.addEventListener('visibilitychange', () => {
       if(document.hidden) {
         clearInterval(this.arrivalsInterval);
       } else {
-        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000);
+        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 60000000);
       }
     });
   }
 
   updateArrivals() {
-    Server.getArrivals(this.currentStop(this.state));
-    //promise.then set arrivals
-    //setState({arrivals: });
+    Server.getArrivals(this.currentStop(this.state))
+      .then((data) => {
+        this.setState({arrivals: data});
+      });
   }
 
   render() {
