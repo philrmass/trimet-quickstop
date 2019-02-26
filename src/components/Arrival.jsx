@@ -3,6 +3,11 @@ import ArrivalIcon from './ArrivalIcon';
 import PropTypes from 'prop-types';
 import styles from './Arrival.css';
 
+/*
+        this.late = ((lateMin === 0) ? 'On time' : lateMin + ' min late');
+        isFinite(val);
+        */
+
 function Arrival(props) {
   return (
     <div className={styles.arrival}>
@@ -14,22 +19,22 @@ function Arrival(props) {
       </span>
       <span>
         <div>
-          <span>{props.estimatedMin}</span>
-          <span>{props.estimatedSec}</span>
+          <span>A{props.arrives.toFixed(3)}</span>
+          <span>_{}</span>
         </div>
-        <div>{props.status}</div>
+        <div>L{props.late.toFixed(2)}</div>
       </span>
     </div>
   );
 }
 
 Arrival.propTypes = {
-  line: PropTypes.string,
   destination: PropTypes.string,
   scheduled: PropTypes.string,
-  estimatedMin: PropTypes.number,
-  estimatedSec: PropTypes.number,
-  status: PropTypes.string
+  arrives: PropTypes.number,
+  late: PropTypes.number,
+
+  line: PropTypes.string
 };
 
 export default Arrival;

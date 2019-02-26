@@ -1,6 +1,7 @@
 import { TRIMET_API_KEY } from '../.env';
 
 const API = 'https://developer.trimet.org/ws/V2/arrivals?json=true&minutes=30&showPosition=false&';
+const MS_PER_MIN = 60 * 1000;
 
 class Server {
   static getArrivals(stopId) {
@@ -22,7 +23,7 @@ class Server {
       return {
         destination: Server.parseDestination(arrival.shortSign),
         scheduled: Server.parseScheduled(arrival.scheduled),
-        late: 3.21,
+        late: Server.parseLate(arrival.scheduled, arrival.estimated),
         arrives: 27.4589,
         type: 'max',
         line: 'orange',
@@ -56,6 +57,13 @@ class Server {
       return (new Date(scheduled)).toLocaleString('en-US', timeOptions);
     }
     return '';
+  }
+
+  static parseLate(scheduled, estimated) {
+    if(scheduled && estimated) {
+      return ((estimated - scheduled) / MS_PER_MIN);
+    }
+    return Infinity;
   }
 }
 

@@ -7,33 +7,19 @@ import styles from './ArrivalList.css';
 let list = [
   {
     line: 'orange',
-    destination: 'Milwaukie',
-    scheduled: '10:30 PM',
-    estimatedMin: 7,
-    estimatedSec: 5,
     status: 'On Time'
   },
   {
     line: 'green',
-    destination: 'City Ctr',
-    scheduled: '10:52 PM',
-    estimatedMin: 21,
-    estimatedSec: 20,
     status: '8 min late'
   },
   {
     line: 'orange',
-    destination: 'Milwaukie',
-    scheduled: '11:00 PM',
-    estimatedMin: 28,
-    estimatedSec: 40,
     status: 'No ETA'
   }
 ];
-          line={arrival.line}
-          estimatedMin={arrival.estimatedMin}
-          estimatedSec={arrival.estimatedSec}
-          status={arrival.status}
+  line={arrival.line}
+  INDEX=ID
 */
 
 function ArrivalList(props) {
@@ -45,7 +31,10 @@ function ArrivalList(props) {
         <Arrival 
           key={index}
           destination={arrival.destination}
-          scheduled={arrival.scheduled}/>
+          scheduled={arrival.scheduled}
+          arrives={arrival.arrives}
+          late={arrival.late}
+        />
       )}
     </section>
   );
