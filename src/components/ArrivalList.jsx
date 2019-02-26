@@ -27,16 +27,18 @@ function ArrivalList(props) {
     <section className={styles.arrivalList}>
       <header className={styles.header}>
       </header>
-      {props.arrivals.map((arrival, index) => 
+      {props.arrivals.map((arrival) => 
         <Arrival 
-          key={index}
+          key={arrival.id}
           type={arrival.type}
+          line={arrival.line}
           route={arrival.route}
           destination={arrival.destination}
           scheduled={arrival.scheduled}
           arrives={arrival.arrives}
           departed={arrival.departed}
           late={arrival.late}
+          vehicleId={arrival.vehicleId}
         />
       )}
     </section>
