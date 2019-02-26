@@ -11,3 +11,6 @@ public/*
 
 # API keys
 .env
+
+# Temporary
+_*.txt

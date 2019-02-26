@@ -20,24 +20,42 @@ class Server {
     }
     const arrivals = data.map(function(arrival) {
       return {
-        destination: arrival.shortSign,
-        scheduled: '10:45 PM',
+        destination: Server.parseDestination(arrival.shortSign),
+        scheduled: Server.parseScheduled(arrival.scheduled),
         late: 3.21,
         arrives: 27.4589,
         type: 'max',
         line: 'orange',
         route: '',
-        vehicleId: '213'
+        vehicleId: '213',
+        departed: false
         //departed: false
         //estimated: 1551079920000
         //scheduled: 1551079920000
-        //shortSign: "Orange Line to Milwaukie"
-        //vehicleID: "105"
-        //status: "estimated"
+        //shortSign: 'Orange Line to Milwaukie'
+        //vehicleID: '105'
+        //status: 'estimated'
       };
     });
-    console.log('ARR', data, arrivals);
+    console.log('IN\n', data, 'OUT\n', arrivals);
     return [];
+  }
+
+  static parseDestination(shortSign) {
+    const toStr = ' to ';
+    const index = shortSign.toLowerCase().indexOf(toStr);
+    if(index >= 0) {
+      return shortSign.substring(index + toStr.length);
+    }
+    return shortSign;
+  }
+
+  static parseScheduled(scheduled) {
+    if(scheduled) {
+      const timeOptions = { hour: 'numeric', minute: '2-digit' };
+      return (new Date(scheduled)).toLocaleString('en-US', timeOptions);
+    }
+    return '';
   }
 }
 
