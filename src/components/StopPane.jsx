@@ -12,13 +12,15 @@ function StopPane(props) {
         stop={props.stop}
         onChangeClick={props.onChangeClick}/>
       <Graph/>
-      <ArrivalList/>
+      <ArrivalList
+        arrivals={props.arrivals}/>
     </div>
   );
 }
 
 StopPane.propTypes = {
   stop: PropTypes.number,
+  arrivals: PropTypes.arrayOf(PropTypes.object),
   onChangeClick: PropTypes.func
 };
 

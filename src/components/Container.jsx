@@ -128,6 +128,7 @@ class Container extends React.Component {
           onPmClick={this.handlePmClick}/>
         <StopPane
           stop={this.currentStop(this.state)}
+          arrivals={this.state.arrivals}
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
         <SearchPane

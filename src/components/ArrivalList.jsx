@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Arrival from './Arrival';
 import styles from './ArrivalList.css';
 
+/*
 let list = [
   {
     line: 'orange',
@@ -28,24 +30,29 @@ let list = [
     status: 'No ETA'
   }
 ];
+          line={arrival.line}
+          estimatedMin={arrival.estimatedMin}
+          estimatedSec={arrival.estimatedSec}
+          status={arrival.status}
+*/
 
-function ArrivalList() {
+function ArrivalList(props) {
   return (
     <section className={styles.arrivalList}>
       <header className={styles.header}>
       </header>
-      {list.map((arrival, index) => 
+      {props.arrivals.map((arrival, index) => 
         <Arrival 
           key={index}
-          line={arrival.line}
           destination={arrival.destination}
-          scheduled={arrival.scheduled}
-          estimatedMin={arrival.estimatedMin}
-          estimatedSec={arrival.estimatedSec}
-          status={arrival.status} />
+          scheduled={arrival.scheduled}/>
       )}
     </section>
   );
 }
+
+ArrivalList.propTypes = {
+  arrivals: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default ArrivalList;

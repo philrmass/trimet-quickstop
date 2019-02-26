@@ -38,7 +38,7 @@ class Server {
       };
     });
     console.log('IN\n', data, 'OUT\n', arrivals);
-    return [];
+    return arrivals;
   }
 
   static parseDestination(shortSign) {
