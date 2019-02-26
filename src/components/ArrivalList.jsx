@@ -30,9 +30,12 @@ function ArrivalList(props) {
       {props.arrivals.map((arrival, index) => 
         <Arrival 
           key={index}
+          type={arrival.type}
+          route={arrival.route}
           destination={arrival.destination}
           scheduled={arrival.scheduled}
           arrives={arrival.arrives}
+          departed={arrival.departed}
           late={arrival.late}
         />
       )}

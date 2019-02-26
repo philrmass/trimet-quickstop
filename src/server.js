@@ -5,41 +5,48 @@ const MS_PER_MIN = 60 * 1000;
 
 class Server {
   static getArrivals(stopId) {
-    //??? if stop data is old, else use data with new time
+    const now = Date.now();
+    //??? try to find stop in cache
+    //??? if found and not too old, use with now, return promise
+    //??? else, request new data
     const url = API + `appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
     console.log('API', url);
     return fetch(url).then((response) => {
       return response.json();
     }).then((data) => {
-      return Server.parseArrivals(data.resultSet && data.resultSet.arrival);
+      return Server.parseArrivals(data.resultSet && data.resultSet.arrival, now);
     });
   }
 
-  static parseArrivals(data) {
+  static parseArrivals(data, now) {
     if(!data) {
       return [];
     }
     const arrivals = data.map(function(arrival) {
       return {
+        type: Server.parseType(arrival.fullSign, arrival.streetCar),
+        route: arrival.route,
         destination: Server.parseDestination(arrival.shortSign),
         scheduled: Server.parseScheduled(arrival.scheduled),
         late: Server.parseLate(arrival.scheduled, arrival.estimated),
-        arrives: 27.4589,
-        type: 'max',
+        arrives: Server.parseArrives(now, arrival.estimated),
+        departed: arrival.departed,
         line: 'orange',
-        route: '',
         vehicleId: '213',
-        departed: false
-        //departed: false
-        //estimated: 1551079920000
-        //scheduled: 1551079920000
-        //shortSign: 'Orange Line to Milwaukie'
-        //vehicleID: '105'
-        //status: 'estimated'
+        id: arrival.id
       };
     });
     console.log('IN\n', data, 'OUT\n', arrivals);
     return arrivals;
+  }
+
+  static parseType(fullSign, streetCar) {
+    if(fullSign.toLowerCase().startsWith('max')) {
+      return 'max';
+    } else if(streetCar) {
+      return 'streetcar';
+    }
+    return 'bus';
   }
 
   static parseDestination(shortSign) {
@@ -62,6 +69,13 @@ class Server {
   static parseLate(scheduled, estimated) {
     if(scheduled && estimated) {
       return ((estimated - scheduled) / MS_PER_MIN);
+    }
+    return Infinity;
+  }
+
+  static parseArrives(now, estimated) {
+    if(estimated) {
+      return ((estimated - now) / MS_PER_MIN);
     }
     return Infinity;
   }
