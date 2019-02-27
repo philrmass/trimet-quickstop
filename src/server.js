@@ -22,46 +22,42 @@ class Server {
       return [];
     }
     const arrivals = data.map(function(arrival) {
+      const {line, symbol} = Server.parseLineSymbol(arrival.fullSign, arrival.route);
       return {
-        type: Server.parseType(arrival.fullSign, arrival.streetCar),
-        line: Server.parseLine(arrival.fullSign),
-        route: arrival.route,
+        id: arrival.id,
+        line: line,
+        symbol: symbol,
         destination: Server.parseDestination(arrival.shortSign),
         scheduled: Server.parseScheduled(arrival.scheduled),
-        late: Server.parseLate(arrival.scheduled, arrival.estimated),
         arrives: Server.parseArrives(now, arrival.estimated),
+        late: Server.parseLate(arrival.scheduled, arrival.estimated),
         departed: arrival.departed,
-        vehicleId: arrival.vehicleID,
-        id: arrival.id
+        vehicleId: arrival.vehicleID
       };
     });
     console.log('IN\n', data, 'OUT\n', arrivals);
     return arrivals;
   }
 
-  static parseType(fullSign, streetCar) {
-    //??? is streetCar reliable?
-    if(fullSign.toLowerCase().startsWith('max')) {
-      return 'max';
-    } else if(streetCar) {
-      return 'streetcar';
+  static parseLineSymbol(fullSign, route) {
+    const sign = fullSign.toLowerCase();
+    let line = '';
+    let symbol = '';
+    if(sign.startsWith('max')) {
+      //??? parse color
+      //MAX  Blue Line to Gresham
+      line = 'green';
+    } else if(sign.indexOf('streetcar') > -1) {
+      line= 'streetcar';
+      //Portland Streetcar NS Line to NW 23rd Ave
+      //Portland Streetcar Loop A - To PSU via OMSI
+      //??? parse symbol
+      symbol = '';
+    } else {
+      line = 'bus';
+      symbol = '' + route;
     }
-    return 'bus';
-  }
-
-  static parseLine(fullSign, streetCar) {
-    //Portland Streetcar NS Line to NW 23rd Ave
-    //Portland Streetcar Loop A - To PSU via OMSI
-    //MAX  Blue Line to Gresham
-    //??? parse line
-    if(streetCar) {
-      console.log('str:', fullSign);
-      return 'NS';
-    } else if(fullSign.toLowerCase().startsWith('max')) {
-      console.log('max:', fullSign);
-      return 'orange';
-    }
-    return '';
+    return {line, symbol};
   }
 
   static parseDestination(shortSign) {

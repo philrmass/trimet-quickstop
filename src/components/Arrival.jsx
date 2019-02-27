@@ -20,34 +20,35 @@ function Arrival(props) {
       <span className={styles.destinationBox}>
         <div className={styles.destination}>{props.destination}</div>
         <div className={styles.scheduled}>Scheduled {props.scheduled}</div>
-        <div>t_{props.type} r_{props.route} i_{props.vehicleId}</div>
       </span>
       <span>
         <div>
-          <span>a_{props.arrives.toFixed(3)}</span>
+          <span>{props.arrives.toFixed(2)} min</span>
           <span></span>
         </div>
-        <div>l_{props.late.toFixed(2)}</div>
+        <div>{props.late.toFixed(0)} min late</div>
         <div>
-          {props.departed ? 'DEP ' : 'not '}
-          l_{props.line}
         </div>
       </span>
     </div>
   );
 }
+/*
+          l_{props.line}
+        <div>s_{props.symbol} i_{props.vehicleId}</div>
+          {props.departed ? 'DEP ' : 'not '}
+*/
 
 Arrival.propTypes = {
-  type: PropTypes.string,
+  id: PropTypes.string,
   line: PropTypes.string,
-  route: PropTypes.number,
+  symbol: PropTypes.string,
   destination: PropTypes.string,
   scheduled: PropTypes.string,
   arrives: PropTypes.number,
-  departed: PropTypes.bool,
   late: PropTypes.number,
-  vehicleId: PropTypes.string,
-  id: PropTypes.string
+  departed: PropTypes.bool,
+  vehicleId: PropTypes.string
 };
 
 export default Arrival;
