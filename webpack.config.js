@@ -56,7 +56,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: './public',
-    hot: true
+    contentBase: './public'
   }
 };
