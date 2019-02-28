@@ -16,7 +16,8 @@ function Arrival(props) {
   return (
     <div className={styles.arrival}>
       <ArrivalIcon
-        line={props.line}/>
+        line={props.line}
+        symbol={props.symbol}/>
       <span className={styles.destinationBox}>
         <div className={styles.destination}>{props.destination}</div>
         <div className={styles.scheduled}>Scheduled {props.scheduled}</div>

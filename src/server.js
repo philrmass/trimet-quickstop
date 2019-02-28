@@ -47,7 +47,7 @@ class Server {
     let line = '';
     let symbol = '';
     if(sign.startsWith('max')) {
-      line = sign.replace(maxRegex, '$2');
+      line = sign.replace(maxRegex, '$1');
     } else if(sign.indexOf('streetcar') > -1) {
       line= 'streetcar';
       symbol = sign.replace(streetcarRegex, '$1').toUpperCase();
