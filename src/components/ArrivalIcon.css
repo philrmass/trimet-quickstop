@@ -1,14 +1,40 @@
 .arrivalIcon {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 2em;
   height: 2em;
   border-radius: 50%;
-  color: #484848;
+  color: var(--light-text-pm-color);
+}
+
+.red {
+  background-color: #e81020;
 }
 
 .orange {
-  background-color: #ff8000;
+  background-color: #f08010;
 }
+
+.yellow {
+  background-color: #e8e410;
+}
+
 .green {
-  background-color: #40e800;
+  background-color: #10e000;
+}
+
+.blue {
+  background-color: #1020f0;
+}
+
+.streetcar {
+  border-radius: 15%;
+  background-color: #30d0ff;
+  color: var(--dark-text-color);
+}
+
+.bus {
+  border-radius: 15%;
+  background-color: #484848;
 }
