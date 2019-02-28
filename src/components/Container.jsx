@@ -102,12 +102,12 @@ class Container extends React.Component {
 
   initializeArrivals() {
     this.updateArrivals();
-    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 10000);
+    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000000);
     document.addEventListener('visibilitychange', () => {
       if(document.hidden) {
         clearInterval(this.arrivalsInterval);
       } else {
-        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 10000);
+        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000000);
       }
     });
   }

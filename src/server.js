@@ -5,6 +5,7 @@ const MS_PER_MIN = 60 * 1000;
 
 class Server {
   static getArrivals(stopId) {
+    console.log('get arrivals', stopId);
     const now = Date.now();
     //??? try to find stop in cache
     //??? if found and not too old, use with now, return promise
@@ -41,18 +42,15 @@ class Server {
 
   static parseLineSymbol(fullSign, route) {
     const sign = fullSign.toLowerCase();
+    const maxRegex = /^.*max\s+(\w+)\s+line.*/;
+    const streetcarRegex = /portland streetcar (?:loop ){0,1}(\w*).*/;
     let line = '';
     let symbol = '';
     if(sign.startsWith('max')) {
-      //??? parse color
-      //MAX  Blue Line to Gresham
-      line = 'green';
+      line = sign.replace(maxRegex, '$2');
     } else if(sign.indexOf('streetcar') > -1) {
       line= 'streetcar';
-      //Portland Streetcar NS Line to NW 23rd Ave
-      //Portland Streetcar Loop A - To PSU via OMSI
-      //??? parse symbol
-      symbol = '';
+      symbol = sign.replace(streetcarRegex, '$1').toUpperCase();
     } else {
       line = 'bus';
       symbol = '' + route;
