@@ -6,6 +6,7 @@ import MapPane from './MapPane';
 import SearchPane from './SearchPane';
 import MenuPane from './MenuPane';
 import Server from '../Server';
+import routeStops from '../assets/data/routeStops.json';
 import styles from './Container.css';
 
 const DATA_UPDATE_INTERVAL = 1000;
@@ -19,8 +20,8 @@ class Container extends React.Component {
       isSearchOpen: false,
       isMenuOpen: false,
       isPm: false,
-      amStop: 0,
-      pmStop: 0,
+      amStop: undefined,
+      pmStop: undefined,
       lastUpdated: 0,
       arrivals: []
     };
@@ -31,11 +32,31 @@ class Container extends React.Component {
     this.handleSearchSet = this.handleSearchSet.bind(this);
     this.arrivalsInterval;
     this.cache = new Cache(DATA_REQUEST_INTERVAL);
+    this.allStops = this.parseAllStops(routeStops.resultSet.route);
+    console.log('all stops', this.allStops);
 
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
       this.initializeArrivals();
     });
+  }
+
+  parseAllStops(routes) {
+    console.log('route stops', routes);
+    let allStops = [];
+    if(routes[0] && routes[0].dir && routes[0].dir[0] && routes[0].dir[0].stop)
+    {
+      const stops = routes[0].dir[0].stop.reduce(() => {}, []);
+    }
+/*
+    const allStops = routes.reduce((stops, route) => {
+      if(route.dir) {
+        const routeStops = route.dir
+      }
+      return stops;
+    }, []);
+      */
+    return allStops;
   }
 
   checkPm() {
@@ -101,8 +122,13 @@ class Container extends React.Component {
     }
   }
 
+  randomStop() {
+    return Math.floor(10000 * Math.random());
+  }
+
   currentStop(state) {
-    return (state.isPm ? state.pmStop : state.amStop);
+    const stop = (state.isPm ? state.pmStop : state.amStop);
+    return (typeof(stop) !== 'undefined' ? stop : this.randomStop());
   }
 
   initializeArrivals() {

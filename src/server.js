@@ -21,6 +21,7 @@ class Server {
   }
 
   static parseArrivals(data, now) {
+    //??? return an object, add stop information
     if(!data) {
       return [];
     }
