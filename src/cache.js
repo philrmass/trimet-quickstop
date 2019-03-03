@@ -9,12 +9,10 @@ class Cache {
     this.stopsData[stopId] = data;
     this.stopsQueue = this.stopsQueue.filter((data) => data.stopId != stopId);
     this.stopsQueue.push({stopId, time});
-    console.log('CACHE_SET', stopId);
   }
 
   get(stopId, time) {
     this.clearOld(time);
-    console.log('CACHE_GET', stopId, this.stopsData[stopId]);
     return this.stopsData[stopId];
   }
 

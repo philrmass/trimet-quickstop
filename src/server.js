@@ -5,11 +5,9 @@ const MS_PER_MIN = 60 * 1000;
 
 class Server {
   static getArrivals(stopId, cache) {
-    //console.log('GET_ARRIVALS', stopId);
     const now = Date.now();
     const data = cache.get(stopId, now);
     if(data) {
-      //console.log('OLD_DATA', stopId);
       return Promise.resolve(Server.parseArrivals(data.resultSet && data.resultSet.arrival, now));
     } else {
       const url = API + `appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
@@ -17,7 +15,6 @@ class Server {
         return response.json();
       }).then((data) => {
         cache.set(stopId, now, data);
-        //console.log('NEW_DATA', stopId);
         return Server.parseArrivals(data.resultSet && data.resultSet.arrival, now);
       });
     }
@@ -41,7 +38,6 @@ class Server {
         vehicleId: arrival.vehicleID
       };
     });
-    //console.log('IN\n', data, 'OUT\n', arrivals);
     return arrivals;
   }
 
