@@ -4,18 +4,23 @@ const API = 'https://developer.trimet.org/ws/V2/arrivals?json=true&minutes=30&sh
 const MS_PER_MIN = 60 * 1000;
 
 class Server {
-  static getArrivals(stopId) {
-    console.log('get arrivals', stopId);
+  static getArrivals(stopId, cache) {
+    //console.log('GET_ARRIVALS', stopId);
     const now = Date.now();
-    //??? try to find stop in cache
-    //??? if found and not too old, use with now, return promise
-    //??? else, request new data
-    const url = API + `appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
-    return fetch(url).then((response) => {
-      return response.json();
-    }).then((data) => {
-      return Server.parseArrivals(data.resultSet && data.resultSet.arrival, now);
-    });
+    const data = cache.get(stopId, now);
+    if(data) {
+      //console.log('OLD_DATA', stopId);
+      return Promise.resolve(Server.parseArrivals(data.resultSet && data.resultSet.arrival, now));
+    } else {
+      const url = API + `appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
+      return fetch(url).then((response) => {
+        return response.json();
+      }).then((data) => {
+        cache.set(stopId, now, data);
+        //console.log('NEW_DATA', stopId);
+        return Server.parseArrivals(data.resultSet && data.resultSet.arrival, now);
+      });
+    }
   }
 
   static parseArrivals(data, now) {
@@ -36,7 +41,7 @@ class Server {
         vehicleId: arrival.vehicleID
       };
     });
-    console.log('IN\n', data, 'OUT\n', arrivals);
+    //console.log('IN\n', data, 'OUT\n', arrivals);
     return arrivals;
   }
 

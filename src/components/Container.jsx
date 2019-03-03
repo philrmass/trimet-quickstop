@@ -1,4 +1,5 @@
 import React from 'react';
+import Cache from '../Cache';
 import NavBar from './NavBar';
 import StopPane from './StopPane';
 import MapPane from './MapPane';
@@ -6,6 +7,9 @@ import SearchPane from './SearchPane';
 import MenuPane from './MenuPane';
 import Server from '../Server';
 import styles from './Container.css';
+
+const DATA_UPDATE_INTERVAL = 1000;
+const DATA_REQUEST_INTERVAL = 30000;
 
 class Container extends React.Component {
   constructor(props) {
@@ -26,6 +30,7 @@ class Container extends React.Component {
     this.handleSearchClose = this.handleSearchClose.bind(this);
     this.handleSearchSet = this.handleSearchSet.bind(this);
     this.arrivalsInterval;
+    this.cache = new Cache(DATA_REQUEST_INTERVAL);
 
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
@@ -102,18 +107,18 @@ class Container extends React.Component {
 
   initializeArrivals() {
     this.updateArrivals();
-    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000000);
+    this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), DATA_UPDATE_INTERVAL);
     document.addEventListener('visibilitychange', () => {
       if(document.hidden) {
         clearInterval(this.arrivalsInterval);
       } else {
-        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), 1000000);
+        this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), DATA_UPDATE_INTERVAL);
       }
     });
   }
 
   updateArrivals() {
-    Server.getArrivals(this.currentStop(this.state))
+    Server.getArrivals(this.currentStop(this.state), this.cache)
       .then((data) => {
         this.setState({arrivals: data});
       });

@@ -1,18 +1,16 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Add api call when active
-* Add trimet api arrivals call
+* Format arrivals data
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
 * Reset is pm when inactive for some period (1 hr)
+* Test and ensure time of day and stop switching works
 
 * Add graph component timeline 
 * Place icons in correct location by time
 * Add labels for timeline
 * Add transparency arrows to timeline
 
-* Add css variables for all colors
-* Add version number to menu
-* Move sw.js and manifest into src
+* Move sw.js and manifest into src?
 
 ### Completed
 * Create menu icon in CSS
@@ -35,3 +33,7 @@
 * Save am/pm/last updated to local storage when set
 * Test active detection using animation frame callback
 * Add a server file for api/cache
+* Add api call when active
+* Add trimet api arrivals call
+* Add css variables for all colors
+* Query cache before api call, test api calls once per minute
