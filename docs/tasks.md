@@ -1,7 +1,9 @@
 # TriMet QuickStop Tasks
 ### To Do
 * Add routes class and file
+* Clean up routes file and remove random
 * Add list of all stop ids
+
 * Get stop name, direction
 * Format arrivals data
 * Test and ensure time of day and stop switching works
@@ -12,6 +14,7 @@
 * Add transparency arrows to timeline
 
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
+
 * Reset is pm when inactive for some period (1 hr)
 * Move sw.js and manifest into src?
 
