@@ -1,16 +1,17 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Format arrivals data
-* Test and ensure time of day and stop switching clears arrivals
+* Fix time of day and stop switching to clear arrivals
 
 * Add graph component timeline 
 * Place icons in correct location by time
 * Add labels for timeline
 * Add transparency arrows to timeline
 
+* Add screenshot to readme
 * Fix search overlay position and size
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
 
+* Filter out arrivals far in the future with no eta
 * Reset is pm when inactive for some period (1 hr)
 * Move sw.js and manifest into src?
 
@@ -43,3 +44,4 @@
 * Clean up routes file and remove random
 * Add list of all stop ids
 * Get stop name, direction
+* Format arrivals data

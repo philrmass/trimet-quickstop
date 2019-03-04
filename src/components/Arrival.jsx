@@ -3,15 +3,6 @@ import ArrivalIcon from './ArrivalIcon';
 import PropTypes from 'prop-types';
 import styles from './Arrival.css';
 
-//??? create late text
-//??? create arrival min:sec
-//??? add category labels above arrival list
-//??? create all icons with type/line/route
-/*
-        this.late = ((lateMin === 0) ? 'On time' : lateMin + ' min late');
-        isFinite(val);
-        */
-
 function arrivesElements(arrives) {
   if(arrives < 0) {
     return (
@@ -27,15 +18,10 @@ function arrivesElements(arrives) {
     const min = Math.floor(arrives);
     const sec = Math.floor(60 * (arrives % 1));
     return(
-      <div>
-        <div>
-          <span>{arrives.toFixed(2)}</span>
-        </div>
-        <div>
-          <span>{min.toFixed(0)}</span>
-          <span>:{sec.toFixed(0)}</span>
-          <span> min</span>
-        </div>
+      <div className={styles.arrives}>
+        <span>{min.toFixed(0)}</span>
+        <span className={styles.arrivesSec}>:{('0' + sec.toFixed(0)).slice(-2)}</span>
+        <span> min</span>
       </div>
     );
   }
@@ -67,11 +53,6 @@ function Arrival(props) {
     </div>
   );
 }
-/*
-          l_{props.line}
-        <div>s_{props.symbol} i_{props.vehicleId}</div>
-          {props.departed ? 'DEP ' : 'not '}
-*/
 
 Arrival.propTypes = {
   id: PropTypes.string,
