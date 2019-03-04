@@ -12,6 +12,44 @@ import styles from './Arrival.css';
         isFinite(val);
         */
 
+function arrivesElements(arrives) {
+  if(arrives < 0) {
+    return (
+      <div>
+        <span>Due</span>
+      </div>
+    );
+  } else if(!isFinite(arrives)) {
+    return (
+      <div></div>
+    );
+  } else {
+    const min = Math.floor(arrives);
+    const sec = Math.floor(60 * (arrives % 1));
+    return(
+      <div>
+        <div>
+          <span>{arrives.toFixed(2)}</span>
+        </div>
+        <div>
+          <span>{min.toFixed(0)}</span>
+          <span>:{sec.toFixed(0)}</span>
+          <span> min</span>
+        </div>
+      </div>
+    );
+  }
+}
+
+function lateText(lateMin) {
+  if(lateMin === 0) {
+    return 'On time';
+  } else if(!isFinite(lateMin)) {
+    return 'No ETA';
+  }
+  return lateMin.toFixed(0) + ' min late';
+}
+
 function Arrival(props) {
   return (
     <div className={styles.arrival}>
@@ -23,13 +61,8 @@ function Arrival(props) {
         <div className={styles.scheduled}>Scheduled {props.scheduled}</div>
       </span>
       <span>
-        <div>
-          <span>{props.arrives.toFixed(2)} min</span>
-          <span></span>
-        </div>
-        <div>{props.late.toFixed(0)} min late</div>
-        <div>
-        </div>
+        {arrivesElements(props.arrives)}
+        <div>{lateText(props.late)}</div>
       </span>
     </div>
   );

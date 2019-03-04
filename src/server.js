@@ -8,38 +8,44 @@ class Server {
     const now = Date.now();
     const data = cache.get(stopId, now);
     if(data) {
-      return Promise.resolve(Server.parseArrivals(data.resultSet && data.resultSet.arrival, now));
+      return Promise.resolve(Server.parseArrivals(data.resultSet, now));
     } else {
       const url = API + `appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
       return fetch(url).then((response) => {
         return response.json();
       }).then((data) => {
         cache.set(stopId, now, data);
-        return Server.parseArrivals(data.resultSet && data.resultSet.arrival, now);
+        return Server.parseArrivals(data.resultSet, now);
       });
     }
   }
 
   static parseArrivals(data, now) {
-    //??? return an object, add stop information
-    if(!data) {
-      return [];
+    let stop = {};
+    let arrivals = [];
+
+    if(data.location && data.location[0]) {
+      stop.name = data.location[0].desc;
+      stop.direction = data.location[0].dir;
     }
-    const arrivals = data.map(function(arrival) {
-      const {line, symbol} = Server.parseLineSymbol(arrival.fullSign, arrival.route);
-      return {
-        id: arrival.id,
-        line: line,
-        symbol: symbol,
-        destination: Server.parseDestination(arrival.shortSign),
-        scheduled: Server.parseScheduled(arrival.scheduled),
-        arrives: Server.parseArrives(now, arrival.estimated),
-        late: Server.parseLate(arrival.scheduled, arrival.estimated),
-        departed: arrival.departed,
-        vehicleId: arrival.vehicleID
-      };
-    });
-    return arrivals;
+    if(data.arrival) {
+      arrivals = data.arrival.map(function(arrival) {
+        const {line, symbol} = Server.parseLineSymbol(arrival.fullSign, arrival.route);
+        return {
+          id: arrival.id,
+          line: line,
+          symbol: symbol,
+          destination: Server.parseDestination(arrival.shortSign),
+          scheduled: Server.parseScheduled(arrival.scheduled),
+          arrives: Server.parseArrives(now, arrival.estimated),
+          late: Server.parseLate(arrival.scheduled, arrival.estimated),
+          departed: arrival.departed,
+          vehicleId: arrival.vehicleID
+        };
+      });
+    }
+
+    return { stop, arrivals };
   }
 
   static parseLineSymbol(fullSign, route) {

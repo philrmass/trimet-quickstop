@@ -9,7 +9,9 @@ function StopPane(props) {
   return (
     <div className={styles.stopPane}>
       <Stop
-        stop={props.stop}
+        stopName={props.stopName}
+        stopDirection={props.stopDirection}
+        stopId={props.stopId}
         onChangeClick={props.onChangeClick}/>
       <Graph/>
       <ArrivalList
@@ -19,7 +21,9 @@ function StopPane(props) {
 }
 
 StopPane.propTypes = {
-  stop: PropTypes.number,
+  stopName: PropTypes.string,
+  stopDirection: PropTypes.string,
+  stopId: PropTypes.number,
   arrivals: PropTypes.arrayOf(PropTypes.object),
   onChangeClick: PropTypes.func
 };

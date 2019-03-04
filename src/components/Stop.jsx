@@ -7,11 +7,11 @@ function Stop(props) {
   return (
     <div className={styles.stop}>
       <div>
-        <div className={styles.name}>SW 5th & Oak MAX Station</div>
+        <div className={styles.name}>{props.stopName}</div>
         <div className={styles.details}>
-          <div className={styles.direction}>Southbound</div>
+          <div className={styles.direction}>{props.stopDirection}</div>
           <div className={styles.id}>
-            Stop {props.stop}
+            Stop {props.stopId}
             <Button
               onClick={props.onChangeClick}>
               Change
@@ -20,16 +20,22 @@ function Stop(props) {
         </div>
       </div>
       <div className={styles.quickBox}>
-        <Button>
-          QuickStop
-        </Button>
       </div>
     </div>
   );
 }
 
+/*
+  //??? restore quickstop button 
+        <Button>
+          QuickStop
+        </Button>
+*/
+
 Stop.propTypes = {
-  stop: PropTypes.number,
+  stopName: PropTypes.string,
+  stopDirection: PropTypes.string,
+  stopId: PropTypes.number,
   onChangeClick: PropTypes.func
 };
 

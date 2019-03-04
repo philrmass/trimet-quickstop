@@ -10,7 +10,7 @@ import MenuPane from './MenuPane';
 import styles from './Container.css';
 
 const DATA_UPDATE_INTERVAL = 1000;
-const DATA_REQUEST_INTERVAL = 300000;
+const DATA_REQUEST_INTERVAL = 30000;
 
 class Container extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class Container extends React.Component {
       amStop: undefined,
       pmStop: undefined,
       lastUpdated: 0,
+      stop: { name: '', direction: '' },
       arrivals: []
     };
     this.handleAmClick = this.handleAmClick.bind(this);
@@ -83,7 +84,6 @@ class Container extends React.Component {
       data.amStop = id;
     }
     this.updateData(data);
-    //??? get stop name, etc.
     this.setState(data);
     this.updateArrivals();
   }
@@ -130,8 +130,11 @@ class Container extends React.Component {
 
   updateArrivals() {
     Server.getArrivals(this.currentStop(this.state), this.cache)
-      .then((data) => {
-        this.setState({arrivals: data});
+      .then(({ stop, arrivals }) => {
+        this.setState({
+          stop: stop,
+          arrivals: arrivals
+        });
       });
   }
 
@@ -143,7 +146,9 @@ class Container extends React.Component {
           onAmClick={this.handleAmClick}
           onPmClick={this.handlePmClick}/>
         <StopPane
-          stop={this.currentStop(this.state)}
+          stopName={this.state.stop.name}
+          stopDirection={this.state.stop.direction}
+          stopId={this.currentStop(this.state)}
           arrivals={this.state.arrivals}
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}
