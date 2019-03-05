@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//??? remove graph icon
-//import GraphIcon from './GraphIcon';
+import ArrivalIcon from './ArrivalIcon';
 import styles from './Graph.css';
 
 const GRAPH_MAX = 30;
@@ -21,13 +20,15 @@ function Graph(props) {
     <div className={styles.graph}>
       <div className={styles.graphLine}>
         {props.arrivals.map((arrival) => {
-          let percent = graphPercentage(arrival.arrives);
+          const percent = graphPercentage(arrival.arrives);
           return (percent && 
             <div 
               key={arrival.id} 
               className={styles.graphIcon}
               style={{left: `${percent}%`}}>
-              {percent.toFixed(1)}
+              <ArrivalIcon
+                line={arrival.line}
+                symbol={arrival.symbol}/>
             </div>
           );
         })}
@@ -35,12 +36,6 @@ function Graph(props) {
     </div>
   );
 }
-
-/*
-      <ArrivalIcon
-        line={props.line}
-        symbol={props.symbol}/>
-*/
 
 Graph.propTypes = {
   arrivals: PropTypes.arrayOf(PropTypes.object)
