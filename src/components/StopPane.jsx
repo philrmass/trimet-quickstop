@@ -13,7 +13,8 @@ function StopPane(props) {
         stopDirection={props.stopDirection}
         stopId={props.stopId}
         onChangeClick={props.onChangeClick}/>
-      <Graph/>
+      <Graph
+        arrivals={props.arrivals}/>
       <ArrivalList
         arrivals={props.arrivals}/>
     </div>

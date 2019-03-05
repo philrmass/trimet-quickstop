@@ -1,6 +1,22 @@
 .graph {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 3.0em;
   background-color: #888a8c;
   font-size: 1.0rem;
+}
+
+.graphLine {
+  position: relative;
+  width: calc(100% - 4em);
+}
+
+.graphIcon {
+  position: absolute;
+  top: 0;
+  width: 2.6em;
+  height: 2.6em;
+  transform: translate(-50%, -50%);
+  background-color: #f08;
 }

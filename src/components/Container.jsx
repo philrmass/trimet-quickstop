@@ -108,7 +108,7 @@ class Container extends React.Component {
     //??? set random stop, change if time > 60000
     //this.allStops
     //return Math.floor(10000 * Math.random());
-    return 3333;
+    return 8334;
   }
 
   currentStop(state) {

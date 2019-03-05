@@ -33,7 +33,7 @@ function lateText(lateMin) {
   } else if(!isFinite(lateMin)) {
     return 'No ETA';
   }
-  return lateMin.toFixed(0) + ' min late';
+  return Math.ceil(lateMin).toFixed(0) + ' min late';
 }
 
 function Arrival(props) {

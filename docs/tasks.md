@@ -1,15 +1,18 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Fix time of day and stop switching to clear arrivals
-
 * Add graph component timeline 
 * Place icons in correct location by time
 * Add labels for timeline
 * Add transparency arrows to timeline
 
+* Clear arrivals on am/pm switching
+* Clear arrivals on stop id change
+* Use ComponentWillUpdate to check for stop changes and request network data
+
 * Add screenshot to readme
 * Fix search overlay position and size
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
+* Look up and store stop name and direction from static data, add to state
 
 * Filter out arrivals far in the future with no eta
 * Reset is pm when inactive for some period (1 hr)
