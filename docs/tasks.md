@@ -1,9 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Add graph component timeline 
-* Place icons in correct location by time
-* Add labels for timeline
-* Add transparency arrows to timeline
 
 * Clear arrivals on am/pm switching
 * Clear arrivals on stop id change
@@ -17,6 +13,8 @@
 * Filter out arrivals far in the future with no eta
 * Reset is pm when inactive for some period (1 hr)
 * Move sw.js and manifest into src?
+* Add labels time labels to graph
+* Add background arrows to graph
 
 ### Completed
 * Create menu icon in CSS
@@ -48,3 +46,5 @@
 * Add list of all stop ids
 * Get stop name, direction
 * Format arrivals data
+* Add graph component timeline 
+* Place icons in correct location by time

@@ -1,20 +1,17 @@
-import routeStops from './assets/data/routeStops.json';
-
 class Routes {
-  allStops() {
-    return this.parseRouteIds(routeStops.resultSet.route);
+  static allStops(data) {
+    const routes = (data && data.resultSet && data.resultSet.route) || [];
+    const dirs = routes.reduce((dirs, route) => dirs.concat(route.dir || []), []);
+    const stops = dirs.reduce((stops, dir) => stops.concat(dir.stop || []), []);
+    return stops;
   }
 
-  parseRouteIds(routes) {
-    return (routes ? [].concat(...routes.map((route) => this.parseDirectionIds(route.dir))) : []);
-  }
-
-  parseDirectionIds(dirs) {
-    return (dirs ? [].concat(...dirs.map((dir) => this.parseStopIds(dir.stop))) : []);
-  }
-
-  parseStopIds(stops) {
-    return (stops ? stops.map((stop) => stop.locid) : []);
+  static stopsDictionary(data) {
+    const allStops = this.allStops(data);
+    return allStops.reduce((dictionary, stop) => {
+      dictionary[stop.locid] = stop;
+      return dictionary;
+    }, {});
   }
 }
 

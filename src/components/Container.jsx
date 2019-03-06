@@ -8,9 +8,10 @@ import MapPane from './MapPane';
 import SearchPane from './SearchPane';
 import MenuPane from './MenuPane';
 import styles from './Container.css';
+import routeStops from '../assets/data/routeStops.json';
 
 const DATA_UPDATE_INTERVAL = 1000;
-const DATA_REQUEST_INTERVAL = 30000;
+const DATA_REQUEST_INTERVAL = 3000000;
 
 class Container extends React.Component {
   constructor(props) {
@@ -33,8 +34,7 @@ class Container extends React.Component {
     this.handleSearchSet = this.handleSearchSet.bind(this);
     this.arrivalsInterval;
     this.cache = new Cache(DATA_REQUEST_INTERVAL);
-    this.routes = new Routes();
-    this.allStops = this.routes.allStops();
+    this.stopsDictionary = Routes.stopsDictionary(routeStops);
 
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
