@@ -1,10 +1,11 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Fix search overlay position and size
-* Filter out arrivals far in the future with no eta
-* Sort arrivals by time (bus/streetcar)
 * Add stop selection from route/direction/stop lists
+* Create icon and add icon set for android & ios
 * Move sw.js and manifest into src, remove dev errors
+* Change 0.00 to Due
+* Filter out arrivals far in the future with no eta if greater than N?
+* Sort arrivals by time (bus/streetcar)
 * Add labels time labels to graph
 * Add background arrows to graph
 * Restore quickstop button
@@ -49,3 +50,4 @@
 * Reset is pm when inactive for some period (1 hr)
 * Add screenshot to readme
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
+* Fix search overlay position and size
