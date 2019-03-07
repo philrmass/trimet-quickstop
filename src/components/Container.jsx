@@ -11,7 +11,7 @@ import styles from './Container.css';
 import routeStops from '../assets/data/routeStops.json';
 
 const DATA_UPDATE_INTERVAL = 1000;
-const DATA_REQUEST_INTERVAL = 3000000;
+const DATA_REQUEST_INTERVAL = 30000;
 
 class Container extends React.Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class Container extends React.Component {
 
   setPm(isPm) {
     this.setTimeOfDayColors(isPm);
-    this.setState({isPm: isPm});
+    this.setState({isPm: isPm, arrivals: []});
   }
 
   handleAmClick() {
@@ -87,10 +87,6 @@ class Container extends React.Component {
     this.updateData(data);
     this.setState(data);
     this.updateArrivals();
-  }
-
-  componentDidMount() {
-    this.setState(this.loadData());
   }
 
   loadData() {
@@ -128,6 +124,14 @@ class Container extends React.Component {
   currentStop(state) {
     const stop = (state.isPm ? state.pmStop : state.amStop);
     return (typeof(stop) !== 'undefined' ? stop : this.randomStop());
+  }
+
+  componentDidMount() {
+    this.setState(this.loadData());
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('update', prevProps, prevState);
   }
 
   initializeArrivals() {
