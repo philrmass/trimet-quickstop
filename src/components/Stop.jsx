@@ -25,13 +25,6 @@ function Stop(props) {
   );
 }
 
-/*
-  //??? restore quickstop button 
-        <Button>
-          QuickStop
-        </Button>
-*/
-
 Stop.propTypes = {
   stopName: PropTypes.string,
   stopDirection: PropTypes.string,

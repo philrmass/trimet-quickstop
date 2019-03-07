@@ -2,52 +2,51 @@
 
 ## Component Tree
 
-App
-- Container [Main application state]
-  - NavBar
-    - Button
-      - MenuIcon
-    - Button (AM)
-    - Button (PM)
-  - StopPane
-    - Stop
-      - Button (Change) 
-      - Button (Quickstop or Close)
-      - Message (Stop)
-    - Graph
-      - ArrivalIcon (xN)
-    - ArrivalList
-      - Arrival (xN)
+- App
+  - Container [Main application state]
+    - NavBar
+      - Button
+        - MenuIcon
+      - Button (AM)
+      - Button (PM)
+    - StopPane
+      - Stop
+        - Button (Change) 
+        - Button (Quickstop or Close)
+        - Message (Stop)
+      - Graph
+        - ArrivalIcon (xN)
+      - ArrivalList
+        - Arrival (xN)
+          - ArrivalIcon
+    - MapPane
+      - Button (Close)
+      - Map
         - ArrivalIcon
-  - MapPane
-    - Button (Close)
-    - Map
-      - ArrivalIcon
-  - SearchPane [Search results state]
-    - Button (Close)
-    - SearchBar [Form input state]
-    - Button (Near)
-    - ResultList
-      - Result (xN)
-    - RecentList
-      - Recent (xN)
-    - SetStop
-      - Button (Set)
-  - MenuPane
-    - Button (Close)
-    - User
-      - Login
-        - Button (Register)
-        - LoginForm [Form input state]
-        - Button (Login)
-      - Logout
-        - Button (Logout)
-      - Register
-        - RegisterForm [Form input state]
-        - Button (Register)
-    - Message (User status)
-    - Button (Quickstop)
-
+    - SearchPane [Search results state]
+      - Button (Close)
+      - SearchBar [Form input state]
+      - Button (Near)
+      - ResultList
+        - Result (xN)
+      - RecentList
+        - Recent (xN)
+      - SetStop
+        - Button (Set)
+    - MenuPane
+      - Button (Close)
+      - User
+        - Login
+          - Button (Register)
+          - LoginForm [Form input state]
+          - Button (Login)
+        - Logout
+          - Button (Logout)
+        - Register
+          - RegisterForm [Form input state]
+          - Button (Register)
+      - Message (User status)
+      - Button (Quickstop)
 
 ## Application Sketches
 

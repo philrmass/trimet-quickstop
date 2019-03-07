@@ -78,10 +78,11 @@ class Container extends React.Component {
 
   handleSearchSet(id) {
     let data = {arrivals: [], lastUpdated: Date.now()};
+    let stop = this.getStop(id);
     if(this.state.isPm) {
-      data.pmStop = id;
+      data.pmStop = stop;
     } else {
-      data.amStop = id;
+      data.amStop = stop;
     }
     this.updateData(data);
     this.setState(data);
@@ -104,11 +105,24 @@ class Container extends React.Component {
     }
   }
 
+  getStop(id) {
+    if(this.stopsDictionary[id]) {
+      return this.stopsDictionary[id];
+    } else {
+      return {
+        locid: id,
+        desc: 'Unknown Stop',
+        direction: 'No information available'
+      };
+    }
+  }
+
   randomStop() {
     //??? set random stop, change if time > 60000
     //this.allStops
     //return Math.floor(10000 * Math.random());
-    return 8334;
+    //return 8334;
+    return this.stopsDictionary[7777];
   }
 
   currentStop(state) {
@@ -129,7 +143,7 @@ class Container extends React.Component {
   }
 
   updateArrivals() {
-    Server.getArrivals(this.currentStop(this.state), this.cache)
+    Server.getArrivals(this.currentStop(this.state).locid, this.cache)
       .then(({ stop, arrivals }) => {
         this.setState({
           stop: stop,
@@ -146,9 +160,7 @@ class Container extends React.Component {
           onAmClick={this.handleAmClick}
           onPmClick={this.handlePmClick}/>
         <StopPane
-          stopName={this.state.stop.name}
-          stopDirection={this.state.stop.direction}
-          stopId={this.currentStop(this.state)}
+          stop={this.currentStop(this.state)}
           arrivals={this.state.arrivals}
           onChangeClick={this.handleChangeClick}/>
         {this.state.isMapOpen && <MapPane/>}

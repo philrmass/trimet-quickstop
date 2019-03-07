@@ -1,6 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-
 * Clear arrivals on am/pm switching
 * Clear arrivals on stop id change
 * Use ComponentWillUpdate to check for stop changes and request network data
@@ -15,6 +14,7 @@
 * Move sw.js and manifest into src?
 * Add labels time labels to graph
 * Add background arrows to graph
+* Add quickstop button
 
 ### Completed
 * Create menu icon in CSS
