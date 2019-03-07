@@ -1,20 +1,14 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Clear arrivals on am/pm switching
-* Clear arrivals on stop id change
-* Use ComponentWillUpdate to check for stop changes and request network data
-
-* Add screenshot to readme
-* Fix search overlay position and size
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
-* Look up and store stop name and direction from static data, add to state
-
+* Fix search overlay position and size
 * Filter out arrivals far in the future with no eta
-* Reset is pm when inactive for some period (1 hr)
-* Move sw.js and manifest into src?
+* Sort arrivals by time (bus/streetcar)
+* Add stop selection from route/direction/stop lists
+* Move sw.js and manifest into src, remove dev errors
 * Add labels time labels to graph
 * Add background arrows to graph
-* Add quickstop button
+* Restore quickstop button
 
 ### Completed
 * Create menu icon in CSS
@@ -48,3 +42,10 @@
 * Format arrivals data
 * Add graph component timeline 
 * Place icons in correct location by time
+* Look up and store stop name and direction from static data, add to state
+* Clear arrivals on am/pm switching
+* Use ComponentWillUpdate to check for stop changes and request network data
+* Clear arrivals on stop id change
+* Clear arrivals on inactive
+* Reset is pm when inactive for some period (1 hr)
+* Add screenshot to readme

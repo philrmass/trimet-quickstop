@@ -11,10 +11,10 @@ function Stop(props) {
         <div className={styles.details}>
           <div className={styles.direction}>{props.stopDirection}</div>
           <div className={styles.id}>
-            Stop {props.stopId}
+            {props.stopId ? 'Stop ' + props.stopId : ''}
             <Button
               onClick={props.onChangeClick}>
-              Change
+              {props.stopId ? 'Change' : 'Set'}
             </Button>
           </div>
         </div>

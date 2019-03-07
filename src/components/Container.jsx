@@ -12,6 +12,7 @@ import routeStops from '../assets/data/routeStops.json';
 
 const DATA_UPDATE_INTERVAL = 1000;
 const DATA_REQUEST_INTERVAL = 30000;
+const PM_RESET_INTERVAL = 1800000;
 
 class Container extends React.Component {
   constructor(props) {
@@ -35,11 +36,32 @@ class Container extends React.Component {
     this.arrivalsInterval;
     this.cache = new Cache(DATA_REQUEST_INTERVAL);
     this.stopsDictionary = Routes.stopsDictionary(routeStops);
+    this.innvisibleTime = Date.now();
 
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
       this.initializeArrivals();
+      //??? enable random stop
+      //setInterval(this.setRandomStop.bind(this), 10000);
     });
+  }
+
+  setRandomStop() {
+    /*
+    let stop = this.getStop(id);
+    if(this.state.isPm) {
+      data.pmStop = stop;
+    } else {
+      data.amStop = stop;
+    }
+    */
+    //??? set random stop, change if time > 60000
+    //this.allStops
+    //return Math.floor(10000 * Math.random());
+    //return 8334;
+    //handleSearchSet(id) {
+    //this.setState(data);
+    //return this.stopsDictionary[7777];
   }
 
   checkPm() {
@@ -57,7 +79,7 @@ class Container extends React.Component {
 
   setPm(isPm) {
     this.setTimeOfDayColors(isPm);
-    this.setState({isPm: isPm, arrivals: []});
+    this.setState({isPm: isPm});
   }
 
   handleAmClick() {
@@ -77,7 +99,7 @@ class Container extends React.Component {
   }
 
   handleSearchSet(id) {
-    let data = {arrivals: [], lastUpdated: Date.now()};
+    let data = {lastUpdated: Date.now()};
     let stop = this.getStop(id);
     if(this.state.isPm) {
       data.pmStop = stop;
@@ -86,7 +108,6 @@ class Container extends React.Component {
     }
     this.updateData(data);
     this.setState(data);
-    this.updateArrivals();
   }
 
   loadData() {
@@ -113,25 +134,32 @@ class Container extends React.Component {
     }
   }
 
-  randomStop() {
-    //??? set random stop, change if time > 60000
-    //this.allStops
-    //return Math.floor(10000 * Math.random());
-    //return 8334;
-    return this.stopsDictionary[7777];
+  unsetStop() {
+    return {
+      locid: undefined,
+      desc: 'No Stop Set',
+      direction: 'Please press button to set'
+    };
   }
 
   currentStop(state) {
     const stop = (state.isPm ? state.pmStop : state.amStop);
-    return (typeof(stop) !== 'undefined' ? stop : this.randomStop());
+    return (typeof(stop) !== 'undefined' ? stop : this.unsetStop());
   }
 
   componentDidMount() {
     this.setState(this.loadData());
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('update', prevProps, prevState);
+  componentDidUpdate(_, prevState) {
+    const isPm = this.state.isPm;
+    const lastIsPm = prevState.isPm;
+    const stopId = this.currentStop(this.state).locid;
+    const lastStopId = this.currentStop(prevState).locid;
+    if((isPm !== lastIsPm) || (stopId && (stopId !== lastStopId))) {
+      this.setState({arrivals: []});
+      this.updateArrivals();
+    }
   }
 
   initializeArrivals() {
@@ -139,8 +167,14 @@ class Container extends React.Component {
     this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), DATA_UPDATE_INTERVAL);
     document.addEventListener('visibilitychange', () => {
       if(document.hidden) {
+        this.innvisibleTime = Date.now();
         clearInterval(this.arrivalsInterval);
       } else {
+        if((Date.now() - this.innvisibleTime) > PM_RESET_INTERVAL) {
+          this.setPm(this.checkPm()); 
+        }
+        this.setState({arrivals: []});
+        this.updateArrivals();
         this.arrivalsInterval = setInterval(this.updateArrivals.bind(this), DATA_UPDATE_INTERVAL);
       }
     });
