@@ -13,6 +13,7 @@ import routeStops from '../assets/data/routeStops.json';
 const DATA_UPDATE_INTERVAL = 1000;
 const DATA_REQUEST_INTERVAL = 30000;
 const PM_RESET_INTERVAL = 1800000;
+const USE_RANDOM_TEST = false;
 
 class Container extends React.Component {
   constructor(props) {
@@ -41,27 +42,23 @@ class Container extends React.Component {
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
       this.initializeArrivals();
-      //??? enable random stop
-      //setInterval(this.setRandomStop.bind(this), 10000);
+      if(USE_RANDOM_TEST) {
+        setInterval(this.setRandomStop.bind(this), 10000);
+      }
     });
   }
 
   setRandomStop() {
-    /*
-    let stop = this.getStop(id);
+    const allStops = Object.values(this.stopsDictionary);
+    const index = Math.floor(allStops.length * Math.random());
+    const stop = allStops[index];
+    let data = {};
     if(this.state.isPm) {
       data.pmStop = stop;
     } else {
       data.amStop = stop;
     }
-    */
-    //??? set random stop, change if time > 60000
-    //this.allStops
-    //return Math.floor(10000 * Math.random());
-    //return 8334;
-    //handleSearchSet(id) {
-    //this.setState(data);
-    //return this.stopsDictionary[7777];
+    this.setState(data);
   }
 
   checkPm() {

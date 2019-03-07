@@ -1,6 +1,5 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
 * Fix search overlay position and size
 * Filter out arrivals far in the future with no eta
 * Sort arrivals by time (bus/streetcar)
@@ -49,3 +48,4 @@
 * Clear arrivals on inactive
 * Reset is pm when inactive for some period (1 hr)
 * Add screenshot to readme
+* Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long

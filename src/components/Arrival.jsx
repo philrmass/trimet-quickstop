@@ -28,7 +28,7 @@ function arrivesElements(arrives) {
 }
 
 function lateText(lateMin) {
-  if(lateMin === 0) {
+  if(lateMin <= 0) {
     return 'On time';
   } else if(!isFinite(lateMin)) {
     return 'No ETA';

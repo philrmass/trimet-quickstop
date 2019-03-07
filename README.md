@@ -16,7 +16,7 @@ _The app works without creating an account, so users can test out the functional
 
 _I first had the idea for a simplified no-click TriMet app while attending Epicodus and worked on it as a 4-day [Angular group project](https://github.com/philrmass/trimet-commuter.git) with three other students. I liked the app enough to use it every day, and I'd also fallen in love with React, so I decided to rewite it completely in React, and then pursue all of the other features we never had time to implement. The other member of that group project were [Scott Bergler](https://github.com/skillitzimberg), [Ralph Perdomo](https://github.com/pseudoralph), and [Jared Reando](https://github.com/JaredReando)._
 
-<img src="docs/screenshot.png"/>
+![Screenshot](docs/screenshot.png)
 
 ## Setup and Installation
 
