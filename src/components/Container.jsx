@@ -22,6 +22,10 @@ class Container extends React.Component {
       isMapOpen: false,
       isSearchOpen: false,
       isMenuOpen: false,
+      search: {
+        routes: Routes.routeNames(routeStops),
+        routeIndex: 0
+      },
       isPm: false,
       amStop: undefined,
       pmStop: undefined,
@@ -33,11 +37,15 @@ class Container extends React.Component {
     this.handlePmClick = this.handlePmClick.bind(this);
     this.handleChangeClick = this.handleChangeClick.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
+    //??? handleSearchRoute
+    //??? handleSearchDir
+    //??? handleSearchStop
     this.handleSearchSet = this.handleSearchSet.bind(this);
     this.arrivalsInterval;
     this.cache = new Cache(DATA_REQUEST_INTERVAL);
     this.stopsDictionary = Routes.stopsDictionary(routeStops);
     this.innvisibleTime = Date.now();
+    console.log('s', this.state.search);
 
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
@@ -193,7 +201,8 @@ class Container extends React.Component {
         <NavBar
           isPm={this.state.isPm}
           onAmClick={this.handleAmClick}
-          onPmClick={this.handlePmClick}/>
+          onPmClick={this.handlePmClick}
+          onChangeClick={this.handleChangeClick}/>
         <StopPane
           stop={this.currentStop(this.state)}
           arrivals={this.state.arrivals}
@@ -201,6 +210,7 @@ class Container extends React.Component {
         {this.state.isMapOpen && <MapPane/>}
         <SearchPane
           isOpen={this.state.isSearchOpen}
+          search={this.state.search}
           onClose={this.handleSearchClose}
           onSet={this.handleSearchSet}/>
         {this.state.isMenuOpen && <MenuPane/>}

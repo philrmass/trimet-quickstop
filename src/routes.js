@@ -13,6 +13,11 @@ class Routes {
       return dictionary;
     }, {});
   }
+
+  static routeNames(data) {
+    const routes = (data && data.resultSet && data.resultSet.route) || [];
+    return routes.reduce((names, route) => names.concat(route.desc || []), []);
+  }
 }
 
 export default Routes;

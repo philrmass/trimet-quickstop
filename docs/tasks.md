@@ -1,6 +1,6 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Create icon and add icon set for android & ios
+* Create icon set for android & ios
 * Add stop selection from route/direction/stop lists
 * Add recent stops below stop selection
 * Split styles into a new folder

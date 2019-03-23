@@ -7,8 +7,8 @@ import styles from './NavBar.css';
 function NavBar(props) {
   return (
     <div className={styles.navBar}>
-      <Button>
-        <MenuIcon/>
+      <Button onClick={props.onChangeClick}>
+        <MenuIcon />
       </Button>
       <span className={styles.title}>TriMet QuickStop</span>
       <span className={styles.timeButtons}>
@@ -31,7 +31,8 @@ function NavBar(props) {
 NavBar.propTypes = {
   isPm: PropTypes.bool,
   onAmClick: PropTypes.func,
-  onPmClick: PropTypes.func
+  onPmClick: PropTypes.func,
+  onChangeClick: PropTypes.func
 };
 
 export default NavBar;
