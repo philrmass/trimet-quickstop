@@ -1,7 +1,11 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Add stop selection from route/direction/stop lists
 * Create icon and add icon set for android & ios
+* Add stop selection from route/direction/stop lists
+* Add recent stops below stop selection
+* Split styles into a new folder
+* Delete unused components
+* Add default am/pm stops with special text
 * Move sw.js and manifest into src, remove dev errors
 * Change 0.00 to Due
 * Filter out arrivals far in the future with no eta if greater than N?
