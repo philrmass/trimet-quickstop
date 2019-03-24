@@ -18,6 +18,12 @@ class Routes {
     const routes = (data && data.resultSet && data.resultSet.route) || [];
     return routes.reduce((names, route) => names.concat(route.desc || []), []);
   }
+
+  static dirNames(data, index) {
+    //const routes = (data && data.resultSet && data.resultSet.route) || [];
+    //return routes.reduce((names, route) => names.concat(route.desc || []), []);
+    return ['North', 'South'];
+  }
 }
 
 export default Routes;

@@ -3,17 +3,30 @@ import PropTypes from 'prop-types';
 import styles from './SearchBar.css';
 
 function SearchBar(props) {
-  console.log('sps', props.search);
+  console.log('dirs', props.search.dirs);
+  //??? set select value
   return (
     <div className={styles.searchBar}>
-      <div>Search by max line, bus number or address</div>
-      <input type="text" />
+      <select 
+        onChange={(e) => props.onRoute(e.target.value)}>
+        {props.search.routes.map((route, index) =>
+          <option
+            key={index}
+            value={index}>
+            {route}
+          </option>
+        )}
+      </select>
     </div>
   );
 }
 
+/*
+        value={props.search.routeIndex}
+*/
 SearchBar.propTypes = {
-  search: PropTypes.object
+  search: PropTypes.object,
+  onRoute: PropTypes.func
 };
 
 export default SearchBar;

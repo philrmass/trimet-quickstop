@@ -31,8 +31,7 @@ class SearchPane extends React.Component {
   render() {
     return (
       <div 
-        className={[styles.searchPane, (this.props.isOpen ? '' : styles.closed)].join(' ')}
-        onClick={this.props.onClose}>
+        className={[styles.searchPane, (this.props.isOpen ? '' : styles.closed)].join(' ')}>
         <div className={styles.closeBox}>
           <Button
             onClick={this.props.onClose}>
@@ -40,7 +39,8 @@ class SearchPane extends React.Component {
           </Button>
         </div>
         <SearchBar
-          search={this.props.search} />
+          search={this.props.search}
+          onRoute={this.props.onRoute} />
         <div className={styles.near}>
           Search near me
           <Button>
@@ -72,6 +72,7 @@ SearchPane.propTypes = {
   isOpen: PropTypes.bool,
   search: PropTypes.object,
   onClose: PropTypes.func,
+  onRoute: PropTypes.func,
   onSet: PropTypes.func
 };
 

@@ -4,7 +4,7 @@
 * Add stop selection from route/direction/stop lists
 * Add recent stops below stop selection
 * Split styles into a new folder
-* Delete unused components
+* Delete unused components (menu pane, menu open, etc.)
 * Add default am/pm stops with special text
 * Move sw.js and manifest into src, remove dev errors
 * Change 0.00 to Due

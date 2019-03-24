@@ -20,11 +20,12 @@ class Container extends React.Component {
     super(props);
     this.state = {
       isMapOpen: false,
-      isSearchOpen: false,
+      isSearchOpen: true,
       isMenuOpen: false,
       search: {
         routes: Routes.routeNames(routeStops),
-        routeIndex: 0
+        routeIndex: 0,
+        dirs: Routes.dirNames(routeStops, 0)
       },
       isPm: false,
       amStop: undefined,
@@ -37,7 +38,7 @@ class Container extends React.Component {
     this.handlePmClick = this.handlePmClick.bind(this);
     this.handleChangeClick = this.handleChangeClick.bind(this);
     this.handleSearchClose = this.handleSearchClose.bind(this);
-    //??? handleSearchRoute
+    this.handleSearchRoute = this.handleSearchRoute.bind(this);
     //??? handleSearchDir
     //??? handleSearchStop
     this.handleSearchSet = this.handleSearchSet.bind(this);
@@ -97,6 +98,13 @@ class Container extends React.Component {
 
   handleChangeClick() {
     this.setState({isSearchOpen: true});
+  }
+
+  handleSearchRoute(index) {
+    console.log('route', index);
+    //this.setState({});
+    //routeIndex: 0,
+    //dirs: Routes.dirNames(routeStops, 0)
   }
 
   handleSearchClose() {
@@ -212,6 +220,7 @@ class Container extends React.Component {
           isOpen={this.state.isSearchOpen}
           search={this.state.search}
           onClose={this.handleSearchClose}
+          onRoute={this.handleSearchRoute}
           onSet={this.handleSearchSet}/>
         {this.state.isMenuOpen && <MenuPane/>}
       </div>
