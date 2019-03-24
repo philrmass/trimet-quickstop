@@ -20,9 +20,9 @@ class Routes {
   }
 
   static dirNames(data, index) {
-    //const routes = (data && data.resultSet && data.resultSet.route) || [];
-    //return routes.reduce((names, route) => names.concat(route.desc || []), []);
-    return ['North', 'South'];
+    const routes = (data && data.resultSet && data.resultSet.route) || [];
+    const dirs = routes[index] && routes[index].dir || [];
+    return dirs.reduce((names, dir) => names.concat(dir.desc || ''), []);
   }
 }
 

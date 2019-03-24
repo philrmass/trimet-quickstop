@@ -102,12 +102,12 @@ class Container extends React.Component {
   }
 
   handleSearchRoute(index) {
-    console.log('route', index);
     this.setState((state) => ({
       search: {
         ...state.search,
         routeIndex: index,
-        dirs: Routes.dirNames(routeStops, index)
+        dirs: Routes.dirNames(routeStops, index),
+        dirIndex: 0
       }
     }));
   }

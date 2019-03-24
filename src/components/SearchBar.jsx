@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './SearchBar.css';
 
 function SearchBar(props) {
-  console.log('search', props.search.routeIndex);
   return (
     <div className={styles.searchBar}>
       <div>
