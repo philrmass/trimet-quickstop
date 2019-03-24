@@ -41,7 +41,8 @@ class SearchPane extends React.Component {
         <SearchBar
           search={this.props.search}
           onRoute={this.props.onRoute}
-          onDir={this.props.onDir} />
+          onDir={this.props.onDir}
+          onStop={this.props.onStop} />
         <div className={styles.near}>
           Search near me
           <Button>
@@ -75,6 +76,7 @@ SearchPane.propTypes = {
   onClose: PropTypes.func,
   onRoute: PropTypes.func,
   onDir: PropTypes.func,
+  onStop: PropTypes.func,
   onSet: PropTypes.func
 };
 

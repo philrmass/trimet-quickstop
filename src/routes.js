@@ -24,6 +24,14 @@ class Routes {
     const dirs = routes[index] && routes[index].dir || [];
     return dirs.reduce((names, dir) => names.concat(dir.desc || ''), []);
   }
+
+  static stopNames(data, routeIndex, dirIndex) {
+    const routes = (data && data.resultSet && data.resultSet.route) || [];
+    const dirs = routes[routeIndex] && routes[routeIndex].dir || [];
+    console.log('stops', dirs, routeIndex, dirIndex);
+    return ['stop0', 'stop1', 'stop2'];
+    //return dirs.reduce((names, dir) => names.concat(dir.desc || ''), []);
+  }
 }
 
 export default Routes;

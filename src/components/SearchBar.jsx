@@ -5,7 +5,7 @@ import styles from './SearchBar.css';
 function SearchBar(props) {
   return (
     <div className={styles.searchBar}>
-      <div>
+      <div className={styles.selects}>
         <select 
           value={props.search.routeIndex}
           onChange={(e) => props.onRoute(e.target.value)}>
@@ -17,8 +17,6 @@ function SearchBar(props) {
             </option>
           )}
         </select>
-      </div>
-      <div>
         <select 
           value={props.search.dirIndex}
           onChange={(e) => props.onDir(e.target.value)}>
@@ -30,6 +28,17 @@ function SearchBar(props) {
             </option>
           )}
         </select>
+        <select 
+          value={props.search.stopIndex}
+          onChange={(e) => props.onStop(e.target.value)}>
+          {props.search.stops.map((stop, index) =>
+            <option
+              key={index}
+              value={index}>
+              {stop}
+            </option>
+          )}
+        </select>
       </div>
     </div>
   );
@@ -38,7 +47,8 @@ function SearchBar(props) {
 SearchBar.propTypes = {
   search: PropTypes.object,
   onRoute: PropTypes.func,
-  onDir: PropTypes.func
+  onDir: PropTypes.func,
+  onStop: PropTypes.func
 };
 
 export default SearchBar;

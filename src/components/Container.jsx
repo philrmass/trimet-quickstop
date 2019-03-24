@@ -26,7 +26,9 @@ class Container extends React.Component {
         routes: Routes.routeNames(routeStops),
         routeIndex: 0,
         dirs: Routes.dirNames(routeStops, 0),
-        dirIndex: 0
+        dirIndex: 0,
+        stops: Routes.stopNames(routeStops, 0, 0),
+        stopIndex: 0
       },
       isPm: false,
       amStop: undefined,
@@ -41,7 +43,7 @@ class Container extends React.Component {
     this.handleSearchClose = this.handleSearchClose.bind(this);
     this.handleSearchRoute = this.handleSearchRoute.bind(this);
     this.handleSearchDir = this.handleSearchDir.bind(this);
-    //??? handleSearchStop
+    this.handleSearchStop = this.handleSearchStop.bind(this);
     this.handleSearchSet = this.handleSearchSet.bind(this);
     this.arrivalsInterval;
     this.cache = new Cache(DATA_REQUEST_INTERVAL);
@@ -113,14 +115,18 @@ class Container extends React.Component {
   }
 
   handleSearchDir(index) {
-    console.log('dir', index);
     this.setState((state) => ({
       search: {
         ...state.search,
-        dirIndex: index
+        dirIndex: index,
+        stops: Routes.stopNames(routeStops, state.search.routeIndex, index),
+        stopIndex: 0 
       }
     }));
-    //stops: Routes.stopNames(routeStops, index)
+  }
+
+  handleSearchStop(index) {
+    console.log('stop', index);
   }
 
   handleSearchClose() {
@@ -238,6 +244,7 @@ class Container extends React.Component {
           onClose={this.handleSearchClose}
           onRoute={this.handleSearchRoute}
           onDir={this.handleSearchDir}
+          onStop={this.handleSearchStop}
           onSet={this.handleSearchSet}/>
         {this.state.isMenuOpen && <MenuPane/>}
       </div>

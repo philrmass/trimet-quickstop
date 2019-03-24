@@ -1,2 +1,12 @@
 .searchBar {
+  display: inline-block;
+}
+
+.selects {
+  display: flex;
+  flex-direction: column;
+}
+
+.selects * {
+  margin: 0.2em;
 }
