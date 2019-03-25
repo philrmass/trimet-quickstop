@@ -1,8 +1,12 @@
 # TriMet QuickStop Tasks
 ### To Do
-* Create icon set for android & ios
-* Add stop selection from route/direction/stop lists
+* Remove set stop by id
+* Change SearchPane back to functional component
+* Style selects
 * Add recent stops below stop selection
+* Add recents name & id (when stop is set, add last, add new; when add: remove copies, reduce size, add you)
+* Add recent click (call onSet with id)
+* Create icon set for android & ios
 * Split styles into a new folder
 * Delete unused components (menu pane, menu open, etc.)
 * Add default am/pm stops with special text
@@ -55,3 +59,4 @@
 * Add screenshot to readme
 * Cycle through random stops for testing, store valid stop numbers in stops.json with lat,long
 * Fix search overlay position and size
+* Add stop selection from route/direction/stop lists
