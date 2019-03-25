@@ -1,5 +1,4 @@
-import React from 'react';
-import Cache from '../cache';
+import React from 'react'; import Cache from '../cache';
 import Routes from '../routes';
 import Server from '../server';
 import NavBar from './NavBar';
@@ -20,15 +19,14 @@ class Container extends React.Component {
     super(props);
     this.state = {
       isMapOpen: false,
-      isSearchOpen: true,
+      isSearchOpen: false,
       isMenuOpen: false,
       search: {
         routes: Routes.routeNames(routeStops),
         routeIndex: 0,
         dirs: Routes.dirNames(routeStops, 0),
         dirIndex: 0,
-        stops: Routes.stopNames(routeStops, 0, 0),
-        stopIndex: 0
+        stops: Routes.stopNameIds(routeStops, 0, 0)
       },
       isPm: false,
       amStop: undefined,
@@ -49,7 +47,6 @@ class Container extends React.Component {
     this.cache = new Cache(DATA_REQUEST_INTERVAL);
     this.stopsDictionary = Routes.stopsDictionary(routeStops);
     this.innvisibleTime = Date.now();
-    console.log('s', this.state.search);
 
     window.onload = (() => { 
       this.setPm(this.checkPm()); 
@@ -109,7 +106,8 @@ class Container extends React.Component {
         ...state.search,
         routeIndex: index,
         dirs: Routes.dirNames(routeStops, index),
-        dirIndex: 0
+        dirIndex: 0,
+        stops: Routes.stopNameIds(routeStops, index, 0)
       }
     }));
   }
@@ -119,19 +117,12 @@ class Container extends React.Component {
       search: {
         ...state.search,
         dirIndex: index,
-        stops: Routes.stopNames(routeStops, state.search.routeIndex, index),
-        stopIndex: 0 
+        stops: Routes.stopNameIds(routeStops, state.search.routeIndex, index)
       }
     }));
   }
 
   handleSearchStop(index) {
-    this.setState((state) => ({
-      search: {
-        ...state.search,
-        stopIndex: index
-      }
-    }));
     this.handleSearchSet(this.state.search.stops[index].id);
   }
 

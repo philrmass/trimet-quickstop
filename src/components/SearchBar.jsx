@@ -29,7 +29,7 @@ function SearchBar(props) {
           )}
         </select>
         <select 
-          value={props.search.stopIndex}
+          value='0'
           onChange={(e) => {
             props.onStop(e.target.value);
             props.onClose();

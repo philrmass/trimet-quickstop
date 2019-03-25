@@ -25,12 +25,11 @@ class Routes {
     return dirs.reduce((names, dir) => names.concat(dir.desc || ''), []);
   }
 
-  static stopNames(data, routeIndex, dirIndex) {
+  static stopNameIds(data, routeIndex, dirIndex) {
     const routes = (data && data.resultSet && data.resultSet.route) || [];
     const dirs = routes[routeIndex] && routes[routeIndex].dir || [];
-    console.log('stops', dirs, routeIndex, dirIndex);
-    return [{ name: 'stop0', id: 111 }, { name: 'stop1', id: 222 }, { name: 'stop2', id: 333 }];
-    //return dirs.reduce((names, dir) => names.concat(dir.desc || ''), []);
+    const stops = (dirs[dirIndex] && dirs[dirIndex].stop) || [];
+    return stops.reduce((nameIds, stop) => nameIds.concat({ name: stop.desc, id: stop.locid }), [{ name: 'Select A Stop', id: 0 }]);
   }
 }
 
