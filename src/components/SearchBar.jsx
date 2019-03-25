@@ -30,12 +30,15 @@ function SearchBar(props) {
         </select>
         <select 
           value={props.search.stopIndex}
-          onChange={(e) => props.onStop(e.target.value)}>
+          onChange={(e) => {
+            props.onStop(e.target.value);
+            props.onClose();
+          }}>
           {props.search.stops.map((stop, index) =>
             <option
               key={index}
               value={index}>
-              {stop}
+              {stop.name}
             </option>
           )}
         </select>
@@ -48,7 +51,8 @@ SearchBar.propTypes = {
   search: PropTypes.object,
   onRoute: PropTypes.func,
   onDir: PropTypes.func,
-  onStop: PropTypes.func
+  onStop: PropTypes.func,
+  onClose: PropTypes.func
 };
 
 export default SearchBar;

@@ -126,7 +126,13 @@ class Container extends React.Component {
   }
 
   handleSearchStop(index) {
-    console.log('stop', index);
+    this.setState((state) => ({
+      search: {
+        ...state.search,
+        stopIndex: index
+      }
+    }));
+    this.handleSearchSet(this.state.search.stops[index].id);
   }
 
   handleSearchClose() {

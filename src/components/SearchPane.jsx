@@ -42,7 +42,8 @@ class SearchPane extends React.Component {
           search={this.props.search}
           onRoute={this.props.onRoute}
           onDir={this.props.onDir}
-          onStop={this.props.onStop} />
+          onStop={this.props.onStop}
+          onClose={this.props.onClose} />
         <div className={styles.near}>
           Search near me
           <Button>

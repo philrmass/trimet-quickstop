@@ -29,7 +29,7 @@ class Routes {
     const routes = (data && data.resultSet && data.resultSet.route) || [];
     const dirs = routes[routeIndex] && routes[routeIndex].dir || [];
     console.log('stops', dirs, routeIndex, dirIndex);
-    return ['stop0', 'stop1', 'stop2'];
+    return [{ name: 'stop0', id: 111 }, { name: 'stop1', id: 222 }, { name: 'stop2', id: 333 }];
     //return dirs.reduce((names, dir) => names.concat(dir.desc || ''), []);
   }
 }
