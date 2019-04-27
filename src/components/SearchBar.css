@@ -9,3 +9,9 @@
 .selects * {
   margin: 0.2em;
 }
+
+.selects select {
+  background-color: #f7f8f9;
+  border: 1px solid #c6c8da;
+  border-radius: 3px;
+}

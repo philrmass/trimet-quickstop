@@ -39,3 +39,12 @@ input {
   font: inherit;
   outline: none;
 }
+
+select {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
