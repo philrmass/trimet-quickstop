@@ -1,0 +1,30 @@
+.searchPane {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: var(--size-16);
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+  transition: height 0.2s;
+  overflow: hidden;
+  font-size: 1.9rem;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--size-8);
+}
+.selects {
+  display: flex;
+  flex-direction: column;
+}
+.selects * {
+  margin: var(--size-4);
+}
+.selects select {
+  background-color: var(--light-grey);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}

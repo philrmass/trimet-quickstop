@@ -1,0 +1,65 @@
+:root {
+  --size-4: 4px;
+  --size-8: 8px;
+  --size-16: 16px;
+  --accent-am-color: #c08900;
+  --accent-pm-color: #330090;
+  --accent-color: var(--accent-am-color);
+  --light-text-am-color: #ffffff;
+  --light-text-pm-color: #f0f0f0;
+  --light-text-color: #f0f0f0;
+  --dark-text-color: #384042;
+  --body-font: 'OpenSans', sans-serif;
+  --headline-font: 'Oswald', sans-serif;
+  --light-grey: #f7f8f9;
+  --border: #c6c8da;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('./assets/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('./assets/Oswald-VariableFont_wght.ttf') format('truetype');
+}
+
+html {
+  font-size: 10px;
+  font-family: var(--body-font);
+  color: var(--dark-text-color);
+}
+
+body {
+  margin: 0;
+  background-color: #f0f2f4;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+input {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+select {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}

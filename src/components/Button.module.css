@@ -1,0 +1,28 @@
+.button {
+  box-sizing: border-box;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  margin: 0.1em;
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--light-text-color);
+  transition: font-size 0.1s;
+}
+
+.button:hover,
+.button:active {
+  background-color: var(--light-text-color);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.button:active {
+  color: var(--dark-text-color);
+}
+
+.button:focus {
+}
+
+.current {
+  font-size: 1.3em;
+}

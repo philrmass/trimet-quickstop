@@ -1,0 +1,19 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5em;
+  padding: 0 0.4em;
+  background-color: var(--accent-color);
+  color: var(--light-text-color);
+  font-family: var(--headline-font);
+  font-size: 2.0rem;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+.title {
+}
+
+.timeButtons {
+  flex-shrink: 0;
+}

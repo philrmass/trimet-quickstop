@@ -1,0 +1,24 @@
+.graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.0em;
+  background-color: #888a8c;
+  font-size: 1.2rem;
+}
+
+.graphLine {
+  position: relative;
+  height: 1px;
+  width: calc(100% - 3em);
+  background-color: #989a9c;
+}
+
+.graphIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+}

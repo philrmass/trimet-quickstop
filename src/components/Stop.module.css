@@ -1,0 +1,27 @@
+.stop {
+  padding: 0.5em;
+  font-size: 2.2rem;
+}
+
+.name {
+  margin-bottom: 0.3em;
+  font-family: var(--headline-font);
+  font-size: 1.3em;
+}
+
+.details {
+  padding-left: 0.5em;
+}
+
+.direction {
+}
+
+.id * {
+  margin-left: 0.5em;
+}
+
+.quickBox {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0 0.5em 0;
+}
