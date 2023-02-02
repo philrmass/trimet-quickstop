@@ -5,6 +5,9 @@ import SearchPane from './SearchPane';
 import Server from '../server';
 import StopPane from './StopPane';
 import styles from './Container.module.css';
+//import { useLocalStorage } from 'weight-tracker/src/utilities/storage';
+import { useLocalStorage } from 'utilities/hooks';
+// import { useLocalStorage } from 'philrmass/weight-tracker/src/utilities/storage';
 
 const DATA_REQUEST_INTERVAL = 30000;
 /*
@@ -28,10 +31,11 @@ export default function Container({
 }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isPm, setPm] = useState(false);
-  const [amStop, setAmStop] = useState(emptyStop); // ??? useLocalStorage
-  const [pmStop, setPmStop] = useState(emptyStop); // ??? useLocalStorage
-  // ??? add recentStops, useLocalStorage, add and remove current
+  const [amStop, setAmStop] = useLocalStorage('quickstopAmStop', emptyStop);
+  const [pmStop, setPmStop] = useLocalStorage('quickstopPmStop', emptyStop);
+  const [recentStops, setRecentStops] = useLocalStorage('quickstopRecentStops', []);
   const [arrivals, setArrivals] = useState([]);
+  console.log('RECENT', recentStops);
 
   useEffect(() => {
     initializeArrivals();
@@ -96,6 +100,7 @@ export default function Container({
     return isPm ? pmStop : amStop;
   };
 
+  // ??? update recent stops
   const setCurrentStop = (stop) => {
     if (isPm) {
       setPmStop(stop);

@@ -4,15 +4,17 @@ import { getDirectionNames, getRouteNames, getStops } from '../routes';
 import routeStops from '../assets/routeStops.json';
 import styles from './SearchPane.module.css';
 
-const routeNames = getRouteNames(routeStops);
+   const routeNames = getRouteNames(routeStops);
+// ??? use or remove stopsById
+//const stopsById = Routes.stopsById(routeStops);
 
 export default function SearchPane({
   currentStop,
   isOpen,
   onClose,
-  setCurrentStop,
+  setCurrentStop
 }) {
-  const [routeIndex, setRouteIndex] = useState(currentStop.routeIndex);
+    const [routeIndex, setRouteIndex] = useState(currentStop.routeIndex);
   const [directionNames, setDirectionNames] = useState([]);
   const [directionIndex, setDirectionIndex] = useState(currentStop.directionIndex);
   const [stops, setStops] = useState([]);
