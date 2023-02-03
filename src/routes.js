@@ -34,6 +34,20 @@ class Routes {
   }
 }
 
+// ??? remove
+export function getAllStopIds(routeStops) {
+  const routes = routeStops?.resultSet?.route ?? [];
+
+  const allDirections = routes.reduce((all, route) => [...all, route.dir], []);
+  const stops = allDirections.reduce((all, dir) => {
+    const first = dir[0]?.stop ?? [];
+    const second = dir[1]?.stop ?? [];
+
+    return [...all, ...first, ...second];
+  }, []);
+  return stops.map((stop) => stop.locid);
+}
+
 export function getRouteNames(routeStops) {
   const routes = routeStops?.resultSet?.route ?? [];
 
@@ -44,7 +58,7 @@ export function getDirectionNames(routeStops, routeIndex) {
   const routes = routeStops?.resultSet?.route ?? [];
   const directions = routes[routeIndex]?.dir ?? [];
 
-  return directions.reduce((all, direction) => [...all, direction.desc ?? ''], []);
+  return directions.reduce((all, direction) => [...all, direction.desc], []);
 }
 
 export function getStops(routeStops, routeIndex, directionIndex) {
@@ -53,7 +67,7 @@ export function getStops(routeStops, routeIndex, directionIndex) {
   const stops = directions[directionIndex]?.stop ?? [];
 
   return stops.reduce((all, stop) =>
-    [...all, { name: stop.desc ?? '', id: stop.locid }],
+    [...all, { name: stop.desc, id: stop.locid }],
     []);
 }
 /*

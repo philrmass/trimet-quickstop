@@ -5,26 +5,59 @@
   right: 0;
   left: 0;
   padding: var(--size-16);
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 25%), 0 6px 20px 0 rgb(0 0 0 / 20%);
   transition: height 0.2s;
   overflow: hidden;
   font-size: 1.9rem;
 }
+
 .buttons {
   display: flex;
   justify-content: flex-end;
   margin-bottom: var(--size-8);
 }
+
 .selects {
   display: flex;
   flex-direction: column;
 }
+
 .selects * {
   margin: var(--size-4);
 }
+
 .selects select {
   background-color: var(--light-grey);
   border: 1px solid var(--border);
   border-radius: 3px;
+}
+
+.recents {
+  margin-top: var(--size-16);
+  padding-left: var(--size-8);
+}
+
+.recentsTitle {
+  font-weight: 700;
+  margin-bottom: var(--size-8);
+}
+
+.recents ul {
+  margin-top: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.recents button {
+  text-align: left;
+}
+
+.recents li + li {
+  margin-top: var(--size-8);
+}
+
+.recentStop {
+  padding-left: var(--size-8);
+  font-weight: 500;
 }

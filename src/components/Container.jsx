@@ -2,19 +2,16 @@ import { useEffect, useState } from 'preact/hooks';
 // import Cache from '../cache';
 import NavBar from './NavBar';
 import SearchPane from './SearchPane';
-import Server from '../server';
+//import Server from '../server';
 import StopPane from './StopPane';
 import styles from './Container.module.css';
-//import { useLocalStorage } from 'weight-tracker/src/utilities/storage';
 import { useLocalStorage } from 'utilities/hooks';
-// import { useLocalStorage } from 'philrmass/weight-tracker/src/utilities/storage';
 
-const DATA_REQUEST_INTERVAL = 30000;
-/*
-const DATA_UPDATE_INTERVAL = 1000;
-const PM_RESET_INTERVAL = 1800000;
-const USE_RANDOM_TEST = false;
-*/
+//const DATA_REQUEST_INTERVAL = 30000;
+//const DATA_UPDATE_INTERVAL = 1000;
+//const PM_RESET_INTERVAL = 1800000;
+//const USE_RANDOM_TEST = false;
+
 const emptyStop = {
   directionIndex: 0,
   directionName: 'Please press button to set',
@@ -24,24 +21,15 @@ const emptyStop = {
 
 // ??? remove react from everywhere
 // ??? update to functional components
-export default function Container({
-  cache,
-  // ??? remove this
-  stopsById,
-}) {
+export default function Container({ /*cache*/ }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isPm, setPm] = useState(false);
   const [amStop, setAmStop] = useLocalStorage('quickstopAmStop', emptyStop);
   const [pmStop, setPmStop] = useLocalStorage('quickstopPmStop', emptyStop);
   const [recentStops, setRecentStops] = useLocalStorage('quickstopRecentStops', []);
-  const [arrivals, setArrivals] = useState([]);
-  console.log('RECENT', recentStops);
+  const [arrivals, _setArrivals] = useState([]);
 
-  useEffect(() => {
-    initializeArrivals();
-  }, []);
-
-    /*
+  /*
   useEffect(() => {
     console.log('PM', isPm);
   componentDidUpdate(_, prevState) {
@@ -58,10 +46,14 @@ export default function Container({
   }, [isPm]);
   */
 
-  // ??? set arrivals
-  const initializeArrivals = () => {
-    console.log('INIT');
-  };
+  useEffect(() => {
+    // ??? set arrivals
+    const initializeArrivals = () => {
+      // console.log('INIT');
+    };
+
+    initializeArrivals();
+  }, []);
 
   /*
   initializeArrivals() {
@@ -83,9 +75,9 @@ export default function Container({
   }
   */
 
+  /*
   const updateArrivals = () => {
     console.log('UPDATE', cache);
-    /*
     Server.getArrivals(this.currentStop(this.state).id, this.cache)
       .then(({ stop, arrivals }) => {
         this.setState({
@@ -93,19 +85,31 @@ export default function Container({
           arrivals: arrivals
         });
       });
-      */
   };
+  */
 
-  const getCurrentStop = () => {
-    return isPm ? pmStop : amStop;
-  };
+  const getCurrentStop = () => isPm ? pmStop : amStop;
 
-  // ??? update recent stops
   const setCurrentStop = (stop) => {
     if (isPm) {
+      updateRecentStops(pmStop, stop);
       setPmStop(stop);
     } else {
+      updateRecentStops(amStop, stop);
       setAmStop(stop);
+    }
+  };
+
+  const updateRecentStops = (lastStop, stop) => {
+    const maxCount = 3;
+
+    if (stop.stopId) {
+      const filtered = recentStops.filter((recent) => (
+        recent.stopId !== lastStop.stopId && recent.stopId !== stop.stopId
+      ));
+      const all = [lastStop, ...filtered];
+
+      setRecentStops(all.slice(0, maxCount));
     }
   };
 
@@ -128,6 +132,7 @@ export default function Container({
         currentStop={currentStop}
         isOpen={isSearchOpen}
         onClose={() => setSearchOpen(false)}
+        recentStops={recentStops}
         setCurrentStop={setCurrentStop} 
       />
     </div>
