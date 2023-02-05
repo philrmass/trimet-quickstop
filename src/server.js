@@ -1,104 +1,118 @@
 import { TRIMET_API_KEY } from '../.env';
 
-const API = 'https://developer.trimet.org/ws/V2/arrivals?json=true&minutes=30&showPosition=false&';
+const TRIMET_URL = 'https://developer.trimet.org/ws/V2/arrivals?json=true&minutes=30&showPosition=false&';
 const MS_PER_MIN = 60 * 1000;
 
-class Server {
-  static getArrivals(stopId, cache) {
-    const now = Date.now();
-    const data = cache.get(stopId, now);
-    if(data) {
-      return Promise.resolve(Server.parseArrivals(data.resultSet, now));
-    } else {
-      const url = API + `appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
-      return fetch(url).then((response) => {
-        return response.json();
-      }).then((data) => {
-        cache.set(stopId, now, data);
-        return Server.parseArrivals(data.resultSet, now);
-      });
-    }
+export async function getArrivals(stopId, cache, useCache = true) {
+  const now = Date.now();
+  const last = useCache && cache.get(stopId, now);
+
+  if (last) {
+    console.log('last');
+    return parseArrivals(last, now);
   }
 
-  static parseArrivals(data, now) {
-    let stop = {};
-    let arrivals = [];
+  try {
+    const response = await fetch(getUrl(stopId));
+    const data = await response.json();
 
-    if(data.location && data.location[0]) {
-      stop.name = data.location[0].desc;
-      stop.direction = data.location[0].dir;
-    }
-    if(data.arrival) {
-      arrivals = data.arrival.map(function(arrival) {
-        const {line, symbol} = Server.parseLineSymbol(arrival.fullSign, arrival.route);
-        return {
-          id: arrival.id,
-          line: line,
-          symbol: symbol,
-          destination: Server.parseDestination(arrival.shortSign),
-          scheduled: Server.parseScheduled(arrival.scheduled),
-          arrives: Server.parseArrives(now, arrival.estimated),
-          late: Server.parseLate(arrival.scheduled, arrival.estimated),
-          departed: arrival.departed,
-          vehicleId: arrival.vehicleID
-        };
-      });
-    }
+    cache.set(stopId, now, data);
 
-    return { stop, arrivals };
-  }
-
-  static parseLineSymbol(fullSign, route) {
-    const sign = fullSign.toLowerCase();
-    const maxRegex = /^.*max\s+(\w+)\s+line.*/;
-    const streetcarRegex = /portland streetcar (?:loop ){0,1}(\w*).*/;
-    let line = '';
-    let symbol = '';
-    if(sign.startsWith('max')) {
-      line = sign.replace(maxRegex, '$1');
-    } else if(sign.indexOf('streetcar') > -1) {
-      line= 'streetcar';
-      symbol = sign.replace(streetcarRegex, '$1').toUpperCase();
-    } else {
-      line = 'bus';
-      symbol = '' + route;
-    }
-    return {line, symbol};
-  }
-
-  static parseDestination(shortSign) {
-    const toStr = ' to ';
-    const toIndex = shortSign.toLowerCase().indexOf(toStr);
-    const spaceIndex = shortSign.indexOf(' ');
-    if(toIndex >= 0) {
-      return shortSign.substring(toIndex + toStr.length);
-    } else if(spaceIndex >= 0) {
-      return shortSign.substring(spaceIndex + 1);
-    }
-    return shortSign;
-  }
-
-  static parseScheduled(scheduled) {
-    if(scheduled) {
-      const timeOptions = { hour: 'numeric', minute: '2-digit' };
-      return (new Date(scheduled)).toLocaleString('en-US', timeOptions);
-    }
-    return '';
-  }
-
-  static parseLate(scheduled, estimated) {
-    if(scheduled && estimated) {
-      return ((estimated - scheduled) / MS_PER_MIN);
-    }
-    return Infinity;
-  }
-
-  static parseArrives(now, estimated) {
-    if(estimated) {
-      return ((estimated - now) / MS_PER_MIN);
-    }
-    return Infinity;
+    console.log('NEW');
+    return parseArrivals(data, now);
+  } catch (e) {
+    console.error(`Fetch error (${e})`);
+    return [];
   }
 }
 
-export default Server;
+function parseArrivals(data, now) {
+  const arrivalData = data?.resultSet?.arrival;
+
+  if (!arrivalData) {
+    throw new Error('No arrival data');
+  }
+
+  return arrivalData.map((arrival) => {
+    const { line, symbol } = parseLineSymbol(arrival);
+
+    return {
+      id: arrival.id,
+      line,
+      symbol,
+      destination: parseDestination(arrival),
+      scheduled: parseScheduled(arrival),
+      arrives: parseArrives(now, arrival),
+      late: parseLate(arrival),
+      departed: arrival.departed,
+      vehicleId: arrival.vehicleID,
+    };
+  });
+}
+
+function getUrl(stopId) {
+  return `${TRIMET_URL}appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
+}
+
+function parseLineSymbol(arrival) {
+  const sign = arrival.fullSign.toLowerCase();
+  const route = arrival.route;
+  const maxRegex = /^.*max\s+(\w+)\s+line.*/;
+  const streetcarRegex = /portland streetcar (?:loop ){0,1}(\w*).*/;
+  let line = '';
+  let symbol = '';
+
+  if(sign.startsWith('max')) {
+    line = sign.replace(maxRegex, '$1');
+  } else if(sign.indexOf('streetcar') > -1) {
+    line= 'streetcar';
+    symbol = sign.replace(streetcarRegex, '$1').toUpperCase();
+  } else {
+    line = 'bus';
+    symbol = String(route);
+  }
+  
+  return { line, symbol };
+}
+
+function parseDestination(arrival) {
+  const shortSign = arrival.shortSign;
+  const toStr = ' to ';
+  const toIndex = shortSign.toLowerCase().indexOf(toStr);
+  const spaceIndex = shortSign.indexOf(' ');
+  if(toIndex >= 0) {
+    return shortSign.substring(toIndex + toStr.length);
+  } else if(spaceIndex >= 0) {
+    return shortSign.substring(spaceIndex + 1);
+  }
+  return shortSign;
+}
+
+function parseScheduled(arrival) {
+  const scheduled = arrival.scheduled;
+
+  if(scheduled) {
+    const timeOptions = { hour: 'numeric', minute: '2-digit' };
+    return (new Date(scheduled)).toLocaleString('en-US', timeOptions);
+  }
+  return '';
+}
+
+function parseArrives(now, arrival) {
+  const estimated = arrival.estimated;
+
+  if(estimated) {
+    return ((estimated - now) / MS_PER_MIN);
+  }
+  return Infinity;
+}
+
+function parseLate(arrival) {
+  const scheduled = arrival.scheduled;
+  const estimated = arrival.estimated;
+
+  if(scheduled && estimated) {
+    return ((estimated - scheduled) / MS_PER_MIN);
+  }
+  return Infinity;
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Arrival from './Arrival';
 import styles from './ArrivalList.module.css';
 
+// ??? hide if departed true
 function ArrivalList(props) {
   return (
     <section className={styles.arrivalList}>

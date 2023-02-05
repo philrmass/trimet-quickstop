@@ -1,3 +1,4 @@
+// ??? clean up cache and check it is working
 class Cache {
   constructor(maxAge = 1000) {
     this.maxAge = maxAge;
@@ -7,7 +8,7 @@ class Cache {
 
   set(stopId, time, data) {
     this.stopsData[stopId] = data;
-    this.stopsQueue = this.stopsQueue.filter((data) => data.stopId != stopId);
+    this.stopsQueue = this.stopsQueue.filter((data) => data.stopId !== stopId);
     this.stopsQueue.push({stopId, time});
   }
 

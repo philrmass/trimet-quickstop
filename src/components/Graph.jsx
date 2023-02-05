@@ -5,6 +5,9 @@ import styles from './Graph.module.css';
 
 const GRAPH_MAX = 30;
 
+// ??? change direction of graph
+// ??? add lines and minutes to graph
+// ??? add arrow shapes to graph
 function graphPercentage(arrives) {
   if((arrives < -1) || (arrives > GRAPH_MAX)) {
     return null;
