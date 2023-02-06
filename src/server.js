@@ -7,18 +7,16 @@ export async function getArrivals(stopId, cache, useCache = true) {
   const now = Date.now();
   const last = useCache && cache.get(stopId, now);
 
-  if (last) {
-    console.log('last');
-    return parseArrivals(last, now);
-  }
-
   try {
+    if (last) {
+      return parseArrivals(last, now);
+    }
+
     const response = await fetch(getUrl(stopId));
     const data = await response.json();
 
     cache.set(stopId, now, data);
 
-    console.log('NEW');
     return parseArrivals(data, now);
   } catch (e) {
     console.error(`Fetch error (${e})`);

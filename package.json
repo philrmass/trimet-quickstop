@@ -26,6 +26,6 @@
     "preact-render-to-string": "^5.1.2",
     "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0",
-    "utilities": "https://github.com/philrmass/utilities#v0.2.1"
+    "utilities": "https://github.com/philrmass/utilities#v0.3.1"
   }
 }

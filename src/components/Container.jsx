@@ -4,7 +4,7 @@ import SearchPane from './SearchPane';
 import { getArrivals } from '../server';
 import StopPane from './StopPane';
 import styles from './Container.module.css';
-import { useInterval, useLocalStorage } from 'utilities/hooks';
+import { useInterval, useLocalStorage, useVisibility } from 'utilities/hooks';
 
 const DATA_UPDATE_INTERVAL = 1000;
 
@@ -15,74 +15,72 @@ const emptyStop = {
   routeIndex: 0,
 };
 
-// ???? move to utilities
-function useVisibility(onChange) {
-  const handleChange = useCallback(() => {
-    onChange(document.visibilityState === 'visible');
-  }, [onChange]);
-
-  useEffect(() => {
-    document.addEventListener('visibilitychange', handleChange);
-    return () => {
-      document.removeEventListener('visibilitychange', handleChange);
-    };
-  }, [handleChange]);
+function checkPm() {
+  return ((new Date()).getHours() >= 12);
 }
 
-/*
-  checkPm() {
-    return ((new Date()).getHours() >= 12);
+function arrivesSoon(arrivals) {
+  const fiveSeconds = 5 / 60;
+  const arrives = arrivals[0]?.arrives;
+
+  if (arrives === undefined) {
+    return false;
   }
 
-  setTimeOfDayColors(isPm) {
-    const accentName = (isPm ? '--accent-pm-color' : '--accent-am-color');
-    const textName = (isPm ? '--light-text-pm-color' : '--light-text-am-color');
-    const accentValue = getComputedStyle(document.documentElement).getPropertyValue(accentName);
-    const textValue = getComputedStyle(document.documentElement).getPropertyValue(textName);
-    document.documentElement.style.setProperty('--accent-color', accentValue);
-    document.documentElement.style.setProperty('--light-text-color', textValue);
-  }
-*/
+  return arrives <= fiveSeconds;
+}
 
-// ??? remove react from everywhere
-// ??? update to functional components
-// ??? add real-time map
+function setTimeOfDayColors(isPm) {
+  const accentName = (isPm ? '--accent-pm-color' : '--accent-am-color');
+  const textName = (isPm ? '--light-text-pm-color' : '--light-text-am-color');
+  const style = getComputedStyle(document.documentElement);
+  const accentValue = style.getPropertyValue(accentName);
+  const textValue = style.getPropertyValue(textName);
+
+  document.documentElement.style.setProperty('--accent-color', accentValue);
+  document.documentElement.style.setProperty('--light-text-color', textValue);
+}
+
 export default function Container({ cache }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
-  const [isPm, setPm] = useState(false);
+  const [isPm, setPm] = useState(checkPm());
   const [amStop, setAmStop] = useLocalStorage('quickstopAmStop', emptyStop);
   const [pmStop, setPmStop] = useLocalStorage('quickstopPmStop', emptyStop);
   const [recentStops, setRecentStops] = useLocalStorage('quickstopRecentStops', []);
   const [arrivals, setArrivals] = useState([]);
-  const [isVisible, setIsVisible] = useState(document.visibilityState === 'visible');
+  const isVisible = useVisibility();
   const currentStop = isPm ? pmStop : amStop;
 
   const update = useCallback((useCache) => {
-    // ???? update pm
-
-    getArrivals(currentStop.stopId, cache, useCache)
-      .then((arrivals) => setArrivals(arrivals));
+    if (currentStop.stopId === undefined) {
+      setArrivals([]);
+    } else {
+      getArrivals(currentStop.stopId, cache, useCache)
+        .then((arrivals) => setArrivals(arrivals));
+    }
   }, [currentStop, cache]);
 
   useEffect(() => {
-    update(false);
-  }, [update]);
+    setPm(checkPm());
+  }, [isVisible]);
+
+  useEffect(() => {
+    setTimeOfDayColors(isPm);
+  }, [isPm]);
+
+  useEffect(() => {
+    if (isVisible) {
+      update(false);
+    }
+  }, [isVisible, update]);
 
   useInterval(() => {
     if (isVisible) {
-      // ?? dont use cache if first arrival is within 3 seconds
-      const useCache = true;
+      const useCache = !arrivesSoon(arrivals);
 
       update(useCache);
     }
   }, DATA_UPDATE_INTERVAL);
-
-  useVisibility((visible) => {
-    setIsVisible(visible);
-    if (visible) {
-      update(false);
-    }
-  });
 
   const setCurrentStop = (stop) => {
     if (isPm) {
@@ -107,7 +105,6 @@ export default function Container({ cache }) {
     }
   };
 
-  // ???? pm classes
   return (
     <div className={styles.container}>
       <NavBar
@@ -117,6 +114,7 @@ export default function Container({ cache }) {
         onChangeClick={() => setSearchOpen(true)}
       />
       <StopPane
+        isPm={isPm}
         arrivals={arrivals}
         currentStop={currentStop}
         onChangeClick={() => setSearchOpen(true)}
