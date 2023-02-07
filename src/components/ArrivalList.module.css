@@ -2,6 +2,10 @@
   font-size: 1.8rem;
 }
 
+.arrivals {
+  padding: 0 var(--size-8);
+}
+
 .header {
   display: flex;
   justify-content: space-around;
@@ -10,5 +14,7 @@
   color: var(--light-text-color);
   font-family: var(--headline-font);
   font-size: 1.8rem;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+  box-shadow:
+    0 3px 6px 0 rgb(0 0 0 / 12%),
+    0 4px 10px 0 rgb(0 0 0 / 16%);
 }

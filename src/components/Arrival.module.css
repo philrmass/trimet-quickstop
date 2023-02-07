@@ -2,13 +2,17 @@
   display: grid;
   grid-template-columns: auto 2fr 1fr;
   align-items: center;
-  padding: 0.5em;
-  margin: 0.5em 0;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 16px 0 rgba(0, 0, 0, 0.10), 0 -1px 8px 0 rgba(0, 0, 0, 0.02), 0 -2px 16px 0 rgba(0, 0, 0, 0.03);
+  padding: var(--size-8);
+  margin: var(--size-8) 0;
+  box-shadow:
+    0 1px 8px 0 rgb(0 0 0 / 6%),
+    0 2px 16px 0 rgb(0 0 0 / 10%),
+    0 -1px 8px 0 rgb(0 0 0 / 2%),
+    0 -2px 16px 0 rgb(0 0 0 / 3%);
 }
 
 .destinationBox {
-  margin-left: 0.5em;
+  margin-left: var(--size-8);
 }
 
 .destination {
@@ -20,6 +24,6 @@
   font-size: 0.9em;
 }
 
-.arrivesSec {
+.seconds {
   font-size: 0.85em;
 }

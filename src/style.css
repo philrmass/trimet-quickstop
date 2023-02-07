@@ -2,27 +2,28 @@
   --size-4: 4px;
   --size-8: 8px;
   --size-16: 16px;
+  --size-24: 24px;
   --accent-am-color: #c08900;
   --accent-pm-color: #330090;
   --accent-color: var(--accent-am-color);
-  --light-text-am-color: #ffffff;
+  --light-text-am-color: #fff;
   --light-text-pm-color: #f0f0f0;
   --light-text-color: #f0f0f0;
   --dark-text-color: #384042;
-  --body-font: 'OpenSans', sans-serif;
-  --headline-font: 'Oswald', sans-serif;
+  --body-font: "OpenSans", sans-serif;
+  --headline-font: "Oswald", sans-serif;
   --light-grey: #f7f8f9;
   --border: #c6c8da;
 }
 
 @font-face {
-  font-family: 'OpenSans';
-  src: url('./assets/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+  font-family: OpenSans;
+  src: url("./assets/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('./assets/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-family: Oswald;
+  src: url("./assets/Oswald-VariableFont_wght.ttf") format("truetype");
 }
 
 html {

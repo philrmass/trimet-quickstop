@@ -27,7 +27,11 @@ export default function SearchPane({
   const [directionNames, setDirectionNames] = useState([]);
   const [directionIndex, setDirectionIndex] = useState(currentStop.directionIndex);
   const [stops, setStops] = useState([]);
-  const stopIndex = currentStop.stopIndex ?? 0;
+  const [stopIndex, setStopIndex] = useState(currentStop.stopIndex ?? 0);
+
+  useEffect(() => {
+    setStopIndex(currentStop.stopIndex ?? 0);
+  }, [currentStop.stopIndex]);
 
   useEffect(() => {
     updateOptions(routeStops, routeIndex, directionIndex);
@@ -36,6 +40,7 @@ export default function SearchPane({
   const handleSelectRoute = (index) => {
     setRouteIndex(index);
     setDirectionIndex(0);
+    setStopIndex(0);
     updateOptions(routeStops, index, 0);
   };
 

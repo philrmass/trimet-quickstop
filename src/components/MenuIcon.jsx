@@ -1,14 +1,11 @@
-import React from 'react';
 import styles from './MenuIcon.module.css';
 
-function MenuIcon() {
+export default function MenuIcon() {
   return (
     <div className={styles.menuIcon}>
-      <div className={styles.iconBar}></div>
-      <div className={styles.iconBar}></div>
-      <div className={styles.iconBar}></div>
+      <div className={styles.iconBar} />
+      <div className={styles.iconBar} />
+      <div className={styles.iconBar} />
     </div>
   );
 }
-
-export default MenuIcon;

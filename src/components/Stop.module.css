@@ -1,6 +1,7 @@
 .stop {
   padding: 0.5em;
   font-size: 2.2rem;
+  margin-bottom: 1em;
 }
 
 .name {
@@ -13,15 +14,6 @@
   padding-left: 0.5em;
 }
 
-.direction {
-}
-
 .id * {
   margin-left: 0.5em;
-}
-
-.quickBox {
-  display: flex;
-  justify-content: center;
-  margin: 1em 0 0.5em 0;
 }

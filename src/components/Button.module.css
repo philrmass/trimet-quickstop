@@ -20,9 +20,6 @@
   color: var(--dark-text-color);
 }
 
-.button:focus {
-}
-
 .current {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }

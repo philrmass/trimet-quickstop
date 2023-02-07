@@ -1,9 +1,8 @@
-import React from 'react';
 import ArrivalIcon from './ArrivalIcon';
 import PropTypes from 'prop-types';
 import styles from './Arrival.module.css';
 
-function arrivesElements(arrives) {
+function renderArrival(arrives) {
   if(arrives < 0) {
     return (
       <div>
@@ -12,58 +11,63 @@ function arrivesElements(arrives) {
     );
   } else if(!isFinite(arrives)) {
     return (
-      <div></div>
+      <div />
     );
-  } else {
-    const min = Math.floor(arrives);
-    const sec = Math.floor(60 * (arrives % 1));
-    return(
-      <div className={styles.arrives}>
-        <span>{min.toFixed(0)}</span>
-        <span className={styles.arrivesSec}>:{('0' + sec.toFixed(0)).slice(-2)}</span>
-        <span> min</span>
-      </div>
-    );
-  }
+  } 
+
+  const min = Math.floor(arrives);
+  const sec = Math.floor(60 * (arrives % 1));
+  return(
+    <div>
+      <span>{min.toFixed(0)}</span>
+      <span className={styles.seconds}>:{(`0${ sec.toFixed(0)}`).slice(-2)}</span>
+      <span> min</span>
+    </div>
+  );
+  
 }
 
-function lateText(lateMin) {
+function getLateText(lateMin) {
   if(lateMin <= 0) {
     return 'On time';
   } else if(!isFinite(lateMin)) {
     return 'No ETA';
   }
-  return Math.ceil(lateMin).toFixed(0) + ' min late';
+  return `${Math.ceil(lateMin).toFixed(0) } min late`;
 }
 
-function Arrival(props) {
+export default function Arrival({
+  arrives,
+  destination,
+  late,
+  line,
+  scheduled,
+  symbol,
+}) {
   return (
     <div className={styles.arrival}>
       <ArrivalIcon
-        line={props.line}
-        symbol={props.symbol}/>
+        line={line}
+        symbol={symbol}
+      />
       <span className={styles.destinationBox}>
-        <div className={styles.destination}>{props.destination}</div>
-        <div className={styles.scheduled}>Scheduled {props.scheduled}</div>
+        <div className={styles.destination}>{destination}</div>
+        <div className={styles.scheduled}>Scheduled {scheduled}</div>
       </span>
       <span>
-        {arrivesElements(props.arrives)}
-        <div>{lateText(props.late)}</div>
+        {renderArrival(arrives)}
+        <div>{getLateText(late)}</div>
       </span>
     </div>
   );
 }
 
 Arrival.propTypes = {
-  id: PropTypes.string,
-  line: PropTypes.string,
-  symbol: PropTypes.string,
-  destination: PropTypes.string,
-  scheduled: PropTypes.string,
-  arrives: PropTypes.number,
-  late: PropTypes.number,
-  departed: PropTypes.bool,
-  vehicleId: PropTypes.string
+  arrives: PropTypes.number.isRequired,
+  destination: PropTypes.string.isRequired,
+  late: PropTypes.number.isRequired,
+  line: PropTypes.string.isRequired,
+  scheduled: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
+  vehicleId: PropTypes.string,
 };
-
-export default Arrival;

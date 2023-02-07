@@ -1,11 +1,18 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './Button.module.css';
 
-function Button({isCurrent, onClick, children}) {
+function Button({ isCurrent, onClick, children }) {
+  const classes = classnames(
+    styles.button,
+    {
+      [styles.current]: isCurrent,
+    },
+  );
+
   return (
     <button 
-      className={[styles.button, (isCurrent ? styles.current : '')].join(' ')}
+      className={classes}
       onClick={onClick}>
       {children}
     </button>
@@ -14,11 +21,11 @@ function Button({isCurrent, onClick, children}) {
 
 Button.propTypes = {
   isCurrent: PropTypes.bool,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.element
-  ])
+    PropTypes.element,
+  ]).isRequired,
 };
 
 export default Button;

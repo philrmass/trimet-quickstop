@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'preact/hooks';
+import ArrivalList from './ArrivalList';
+import Graph from './Graph';
 import NavBar from './NavBar';
 import SearchPane from './SearchPane';
+import Stop from './Stop';
 import { getArrivals } from '../server';
-import StopPane from './StopPane';
-import styles from './Container.module.css';
 import { useInterval, useLocalStorage, useVisibility } from 'utilities/hooks';
+import styles from './Container.module.css';
 
 const DATA_UPDATE_INTERVAL = 1000;
 
@@ -113,12 +115,12 @@ export default function Container({ cache }) {
         onPmClick={() => setPm(true)}
         onChangeClick={() => setSearchOpen(true)}
       />
-      <StopPane
-        isPm={isPm}
-        arrivals={arrivals}
+      <Stop
         currentStop={currentStop}
         onChangeClick={() => setSearchOpen(true)}
       />
+      <Graph arrivals={arrivals} />
+      <ArrivalList arrivals={arrivals} />
       <SearchPane
         currentStop={currentStop}
         isOpen={isSearchOpen}

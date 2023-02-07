@@ -1,26 +1,32 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import MenuIcon from './MenuIcon';
 import Button from './Button';
 import styles from './NavBar.module.css';
 
-function NavBar(props) {
+export default function NavBar({
+  isPm,
+  onAmClick,
+  onChangeClick,
+  onPmClick,
+}) {
   return (
     <div className={styles.navBar}>
-      <Button onClick={props.onChangeClick}>
+      <Button onClick={onChangeClick}>
         <MenuIcon />
       </Button>
-      <span className={styles.title}>TriMet QuickStop</span>
+      <span>TriMet QuickStop</span>
       <span className={styles.timeButtons}>
         <Button
-          isCurrent={!props.isPm}
-          onClick={props.onAmClick}>
+          isCurrent={!isPm}
+          onClick={onAmClick}
+        >
           AM
         </Button>
         /
         <Button
-          isCurrent={props.isPm}
-          onClick={props.onPmClick}>
+          isCurrent={isPm}
+          onClick={onPmClick}
+        >
           PM
         </Button>
       </span>
@@ -29,10 +35,8 @@ function NavBar(props) {
 }
 
 NavBar.propTypes = {
-  isPm: PropTypes.bool,
-  onAmClick: PropTypes.func,
-  onPmClick: PropTypes.func,
-  onChangeClick: PropTypes.func
+  isPm: PropTypes.bool.isRequired,
+  onAmClick: PropTypes.func.isRequired,
+  onChangeClick: PropTypes.func.isRequired,
+  onPmClick: PropTypes.func.isRequired,
 };
-
-export default NavBar;

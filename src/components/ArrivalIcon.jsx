@@ -1,19 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ArrivalIcon.module.css';
 
-function ArrivalIcon(props) {
+export default function ArrivalIcon({ line, symbol }) {
   return (
-    <div className={styles.arrivalIcon + ' ' + styles[props.line]}>
-      {props.symbol}
+    <div className={`${styles.arrivalIcon} ${styles[line]}`}>
+      {symbol}
     </div>
   );
 }
 
 ArrivalIcon.propTypes = {
-  line: PropTypes.string,
-  symbol: PropTypes.string
+  line: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
 };
-
-export default ArrivalIcon;
-
