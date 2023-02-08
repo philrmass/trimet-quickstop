@@ -1,0 +1,22 @@
+{
+  "name": "trimet-quickstop",
+  "short_name": "trimet-quickstop",
+  "start_url": "/trimet-quickstop/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000",
+  "theme_color": "#0080ff",
+  "icons": [
+    {
+      "src": "trimet-quickstop/assets/icon.png",
+      "type": "image/png",
+      "purpose": "maskable",
+      "sizes": "512x512"
+    },
+    {
+      "src": "trimet-quickstop/assets/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

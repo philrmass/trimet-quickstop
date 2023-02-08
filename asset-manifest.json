@@ -1,0 +1,20 @@
+{
+  "bundle.css": "bundle.05bce.css",
+  "bundle.js": "bundle.b45ff.esm.js",
+  "bundle.js.map": "bundle.b45ff.esm.js.map",
+  "polyfills.js": "polyfills.76e76.esm.js",
+  "polyfills.js.map": "polyfills.76e76.esm.js.map",
+  "Oswald-VariableFont_wght.ttf": "46d7853f0185f6bf0c930cd8e057b3cf.ttf",
+  "assets/.DS_Store": "assets/.DS_Store",
+  "assets/OpenSans-VariableFont_wdth,wght.ttf": "assets/OpenSans-VariableFont_wdth,wght.ttf",
+  "assets/Oswald-VariableFont_wght.ttf": "assets/Oswald-VariableFont_wght.ttf",
+  "assets/favicon.ico": "assets/favicon.ico",
+  "assets/icon.png": "assets/icon.png",
+  "assets/routeStops.json": "assets/routeStops.json",
+  "OpenSans-VariableFont_wdth,wght.ttf": "ceb05254cedfa895b512364d65045a35.ttf",
+  "manifest.json": "manifest.json",
+  "sw-esm.js": "sw-esm.js",
+  "sw-esm.js.map": "sw-esm.js.map",
+  "sw.js": "sw.js",
+  "sw.js.map": "sw.js.map"
+}
