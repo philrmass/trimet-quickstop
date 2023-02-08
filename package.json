@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "preact build",
+    "build": "preact build --no-prerender",
     "deploy": "gh-pages -d build",
     "eslint": "eslint 'src/**'",
     "dev": "DEV=true preact watch --clear=false",
