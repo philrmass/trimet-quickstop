@@ -8,11 +8,6 @@ const cache = new Cache(DATA_REQUEST_INTERVAL);
 export default function App() {
   return <Container cache={cache} />;
 }
-// ??? fix all lint errors, no react
-// ??? update to functional components
-// ??? update graph
-// ??? fix cache
-// ??? merge with pr
-// ??? deploy
-// ??? fix manifest icon link
-// ??? add real-time map
+
+// TODO:
+// Add a real-time map when you click on an arrival

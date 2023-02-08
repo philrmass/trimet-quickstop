@@ -22,10 +22,7 @@ function Button({ isCurrent, onClick, children }) {
 Button.propTypes = {
   isCurrent: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]).isRequired,
+  children: PropTypes.any,
 };
 
 export default Button;

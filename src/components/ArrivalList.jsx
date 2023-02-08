@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Arrival from './Arrival';
+import Arrival, { propTypes as arrivalPropTypes } from './Arrival';
 import styles from './ArrivalList.module.css';
 
 export default function ArrivalList({ arrivals }) {
@@ -29,15 +29,5 @@ export default function ArrivalList({ arrivals }) {
 }
 
 ArrivalList.propTypes = {
-  arrivals: PropTypes.arrayOf(PropTypes.shape({
-    arrives: PropTypes.number.isRequired,
-    departed: PropTypes.bool.isRequired,
-    destination: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    late: PropTypes.number.isRequired,
-    line: PropTypes.string.isRequired,
-    scheduled: PropTypes.string.isRequired,
-    symbol: PropTypes.string.isRequired,
-    vehicleId: PropTypes.string,
-  })).isRequired,
+  arrivals: PropTypes.arrayOf(PropTypes.shape(arrivalPropTypes)).isRequired,
 };

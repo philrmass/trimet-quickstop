@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'preact/hooks';
 import ArrivalList from './ArrivalList';
 import Graph from './Graph';
 import NavBar from './NavBar';
-import SearchPane from './SearchPane';
 import Stop from './Stop';
+import StopsMenu from './StopsMenu';
 import { getArrivals } from '../server';
 import { useInterval, useLocalStorage, useVisibility } from 'utilities/hooks';
 import styles from './Container.module.css';
@@ -121,7 +121,7 @@ export default function Container({ cache }) {
       />
       <Graph arrivals={arrivals} />
       <ArrivalList arrivals={arrivals} />
-      <SearchPane
+      <StopsMenu
         currentStop={currentStop}
         isOpen={isSearchOpen}
         onClose={() => setSearchOpen(false)}

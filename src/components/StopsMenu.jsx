@@ -6,7 +6,7 @@ import {
   getStops,
 } from '../routes';
 import routeStops from '../assets/routeStops.json';
-import styles from './SearchPane.module.css';
+import styles from './StopsMenu.module.css';
 
 const routeNames = getRouteNames(routeStops);
 
@@ -16,7 +16,7 @@ function getRandomItem(items) {
   return [items[index], index];
 }
 
-export default function SearchPane({
+export default function StopsMenu({
   currentStop,
   isOpen,
   onClose,

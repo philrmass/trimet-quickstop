@@ -62,7 +62,7 @@ export default function Arrival({
   );
 }
 
-Arrival.propTypes = {
+export const propTypes = {
   arrives: PropTypes.number.isRequired,
   destination: PropTypes.string.isRequired,
   late: PropTypes.number.isRequired,
@@ -71,3 +71,5 @@ Arrival.propTypes = {
   symbol: PropTypes.string.isRequired,
   vehicleId: PropTypes.string,
 };
+
+Arrival.propTypes = propTypes;
