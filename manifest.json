@@ -8,7 +8,7 @@
   "theme_color": "#0080ff",
   "icons": [
     {
-      "src": "trimet-quickstop/assets/icon.png",
+      "src": "assets/icon.png",
       "type": "image/png",
       "purpose": "maskable",
       "sizes": "512x512"
