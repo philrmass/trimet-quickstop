@@ -29,6 +29,12 @@
   --yellow: #e8e410;
 
   /* color roles */
+  --accent-am: var(--gold);
+  --accent-pm: var(--blue-dark);
+  --accent: var(--accent-am);
+  --accent-text-am: var(--white);
+  --accent-text-pm: var(--grey-light-3);
+  --accent-text: var(--accent-text-am);
   --background: var(--white);
   --blue-line: var(--blue);
   --border: var(--grey-light-2);
@@ -44,14 +50,6 @@
   --text-light-1: var(--grey-light-3);
   --text-light-2: var(--white);
   --yellow-line: var(--yellow);
-
-  /* ??? fix accent names */
-  --accent-am: var(--gold);
-  --accent-pm: var(--blue-dark);
-  --accent: var(--accent-am);
-  --accent-text-am: var(--white);
-  --accent-text-pm: var(--grey-light-3);
-  --accent-text: var(--accent-text-am);
 }
 
 @font-face {
