@@ -1,7 +1,4 @@
 .graph {
-  --grey: #848688;
-  --light-grey: #989a9c;
-
   background: var(--grey);
   font-size: 1.2rem;
   height: 3em;
@@ -29,7 +26,7 @@
 }
 
 .arrowHalf {
-  background: var(--light-grey);
+  background: var(--grey-light-1);
   height: 50%;
   left: 0;
   position: absolute;

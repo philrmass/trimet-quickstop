@@ -10,4 +10,6 @@ export default function App() {
 }
 
 // TODO:
+// Try adjusting the graph arrows
+// Add a real icon
 // Add a real-time map when you click on an arrival

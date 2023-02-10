@@ -6,6 +6,7 @@ import Stop from './Stop';
 import StopsMenu from './StopsMenu';
 import { getArrivals } from '../server';
 import { useInterval, useLocalStorage, useVisibility } from 'utilities/hooks';
+import { version } from '../../package.json';
 import styles from './Container.module.css';
 
 const DATA_UPDATE_INTERVAL = 1000;
@@ -33,18 +34,18 @@ function arrivesSoon(arrivals) {
 }
 
 function setTimeOfDayColors(isPm) {
-  const accentName = (isPm ? '--accent-pm-color' : '--accent-am-color');
-  const textName = (isPm ? '--light-text-pm-color' : '--light-text-am-color');
+  const accentName = `--accent-${isPm ? 'pm' : 'am'}`;
+  const textName = `--accent-text-${isPm ? 'pm' : 'am'}`;
   const style = getComputedStyle(document.documentElement);
   const accentValue = style.getPropertyValue(accentName);
   const textValue = style.getPropertyValue(textName);
 
-  document.documentElement.style.setProperty('--accent-color', accentValue);
-  document.documentElement.style.setProperty('--light-text-color', textValue);
+  document.documentElement.style.setProperty('--accent', accentValue);
+  document.documentElement.style.setProperty('--accent-text', textValue);
 }
 
 export default function Container({ cache }) {
-  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [isPm, setPm] = useState(checkPm());
   const [amStop, setAmStop] = useLocalStorage('quickstopAmStop', emptyStop);
   const [pmStop, setPmStop] = useLocalStorage('quickstopPmStop', emptyStop);
@@ -97,7 +98,7 @@ export default function Container({ cache }) {
   const updateRecentStops = (lastStop, stop) => {
     const maxRecents = 3;
 
-    if (stop.stopId) {
+    if (stop.stopId !== undefined && lastStop.stopId !== undefined) {
       const filtered = recentStops.filter((recent) => (
         recent.stopId !== lastStop.stopId && recent.stopId !== stop.stopId
       ));
@@ -113,21 +114,22 @@ export default function Container({ cache }) {
         isPm={isPm}
         onAmClick={() => setPm(false)}
         onPmClick={() => setPm(true)}
-        onChangeClick={() => setSearchOpen(true)}
+        onChangeClick={() => setMenuOpen(true)}
       />
       <Stop
         currentStop={currentStop}
-        onChangeClick={() => setSearchOpen(true)}
+        onChangeClick={() => setMenuOpen(true)}
       />
       <Graph arrivals={arrivals} />
       <ArrivalList arrivals={arrivals} />
       <StopsMenu
         currentStop={currentStop}
-        isOpen={isSearchOpen}
-        onClose={() => setSearchOpen(false)}
+        isOpen={isMenuOpen}
+        onClose={() => setMenuOpen(false)}
         recentStops={recentStops}
         setCurrentStop={setCurrentStop} 
       />
+      <div className={styles.version}>{`v${version}`}</div>
     </div>
   );
 }

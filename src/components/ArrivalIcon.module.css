@@ -5,39 +5,39 @@
   width: 2em;
   height: 2em;
   border-radius: 50%;
-  color: var(--light-text-pm-color);
+  color: var(--icon-text);
   box-shadow:
     0 1px 2px 0 rgb(0 0 0 / 12%),
     0 2px 4px 0 rgb(0 0 0 / 16%);
 }
 
 .red {
-  background-color: #e81020;
+  background: var(--red-line);
 }
 
 .orange {
-  background-color: #f08010;
+  background: var(--orange-line);
 }
 
 .yellow {
-  background-color: #e8e410;
+  background: var(--yellow-line);
 }
 
 .green {
-  background-color: #10e000;
+  background: var(--green-line);
 }
 
 .blue {
-  background-color: #1020f0;
+  background: var(--blue-line);
 }
 
 .streetcar {
   border-radius: 15%;
-  background-color: #30d0ff;
-  color: var(--dark-text-color);
+  background: var(--streetcar);
+  color: var(--streetcar-text);
 }
 
 .bus {
   border-radius: 15%;
-  background-color: #484848;
+  background: var(--bus);
 }

@@ -4,8 +4,8 @@
   align-items: center;
   height: 2.5em;
   padding: 0 0.4em;
-  background-color: var(--accent-color);
-  color: var(--light-text-color);
+  background: var(--accent);
+  color: var(--accent-text);
   font-family: var(--headline-font);
   font-size: 2rem;
   box-shadow:

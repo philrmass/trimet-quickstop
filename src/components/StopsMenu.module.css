@@ -1,11 +1,11 @@
-.searchPane {
+.menu {
   box-sizing: border-box;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   padding: var(--size-16);
-  background-color: #fff;
+  background: var(--background);
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 25%), 0 6px 20px 0 rgb(0 0 0 / 20%);
   transition: height 0.2s;
   overflow: hidden;
@@ -28,14 +28,13 @@
 }
 
 .selects select {
-  background-color: var(--light-grey);
+  background: var(--select-background);
   border: 1px solid var(--border);
   border-radius: 3px;
 }
 
 .recents {
   margin-top: var(--size-16);
-  padding-left: var(--size-8);
 }
 
 .recentsTitle {
@@ -47,6 +46,7 @@
   margin-top: 0;
   list-style-type: none;
   padding-left: 0;
+  padding-left: var(--size-8);
 }
 
 .recents button {

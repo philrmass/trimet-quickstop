@@ -161,7 +161,7 @@ export default function StopsMenu({
     if (recentStops.length === 0) { return null; }
 
     return (
-      <div className={styles.recents}>
+      <>
         <div className={styles.recentsTitle}>Recent Stops</div>
         <ul>
           {recentStops.map((stop) => (
@@ -173,7 +173,7 @@ export default function StopsMenu({
             </li>
           ))}
         </ul>
-      </div>
+      </>
     );
   };
 
@@ -186,13 +186,15 @@ export default function StopsMenu({
   if (!isOpen) { return null; }
 
   return (
-    <div className={styles.searchPane}>
+    <div className={styles.menu}>
       <div className={styles.buttons}>
         <Button onClick={onClose}>X</Button>
       </div>
       {buildStopPicker()}
-      {buildRecentStops()}
-      {buildRandomStop()}
+      <div className={styles.recents}>
+        {buildRecentStops()}
+        {buildRandomStop()}
+      </div>
     </div>
   );
 }
