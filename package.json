@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "trimet-quickstop",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MIT",
   "scripts": {
     "build": "preact build --no-prerender",
