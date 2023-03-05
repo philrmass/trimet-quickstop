@@ -1,7 +1,10 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100%" height="100%" fill="#c08900" />
-  <path d="M0,25 h55 l10,4 l20,20 l5,10 V75 H0 V25" fill="#330090" />
-  <path d="M55,35 v18 l25,7 l-11,-15 l-14,-10" fill="#c08900" />
-  <path d="M30,35 h15 v18 h-15 v-18" fill="#c08900" />
-  <path d="M10,35 h15 v18 h-15 v-18" fill="#c08900" />
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffb700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c08900;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad2)" />
+  <path d="M0,25 h50 l10,4 l20,20 l5,10 V75 H0 V25 h10 M25,35 v18 h15 v-18 M5,35 v18 h15 v-18 M50,35 v18 l25,7 l-11,-15 l-14,-10" fill="#330090" />
 </svg>

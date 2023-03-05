@@ -8,15 +8,15 @@
   "theme_color": "#384042",
   "icons": [
     {
-      "src": "/trimet-quickstop/assets/icon1024.png",
+      "src": "/trimet-quickstop/assets/icon512.png",
       "type": "image/png",
       "purpose": "maskable",
-      "sizes": "1024x1024"
+      "sizes": "512x512"
     },
     {
-      "src": "/trimet-quickstop/assets/icon1024.png",
+      "src": "/trimet-quickstop/assets/icon512.png",
       "type": "image/png",
-      "sizes": "1024x1024"
+      "sizes": "512x512"
     }
   ]
 }
