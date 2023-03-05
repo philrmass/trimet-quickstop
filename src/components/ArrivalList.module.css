@@ -1,4 +1,6 @@
 .arrivalList {
+  flex-grow: 1;
+  overflow-y: scroll;
   font-size: 1.8rem;
 }
 

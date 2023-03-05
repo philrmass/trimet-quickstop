@@ -57,7 +57,7 @@ export default function Graph({ arrivals }) {
     <div className={styles.graph}>
       <div className={styles.active}>
         {renderArrows()}
-        {arrivals.map((arrival) => {
+        {arrivals.reverse().map((arrival) => {
           const percent = graphPercentage(arrival.arrives);
           return (percent && 
             <div 
