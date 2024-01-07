@@ -1,7 +1,22 @@
 import { TRIMET_API_KEY } from '../.env';
 
-const TRIMET_URL = 'https://developer.trimet.org/ws/V2/arrivals?json=true&minutes=30&showPosition=false&';
+const TRIMET_URL = 'https://developer.trimet.org/ws';
+const ROUTE_STOPS_URL = `${TRIMET_URL}/V1/routeConfig?json=true&dir=true&stops=true&appID=${TRIMET_API_KEY}`;
+const ARRIVALS_URL = `${TRIMET_URL}/V2/arrivals?json=true&minutes=30&showPosition=false&`;
 const MS_PER_MIN = 60 * 1000;
+
+export async function getRouteStops() {
+  try {
+    const response = await fetch(ROUTE_STOPS_URL);
+    const data = await response.json();
+    await console.log('getRouteStops', data);
+
+    return data;
+  } catch (e) {
+    console.error(`Fetch error (${e})`);
+    return {};
+  }
+}
 
 export async function getArrivals(stopId, cache, useCache = true) {
   const now = Date.now();
@@ -12,7 +27,7 @@ export async function getArrivals(stopId, cache, useCache = true) {
       return parseArrivals(last, now);
     }
 
-    const response = await fetch(getUrl(stopId));
+    const response = await fetch(getArrivalsUrl(stopId));
     const data = await response.json();
 
     cache.set(stopId, now, data);
@@ -48,8 +63,8 @@ function parseArrivals(data, now) {
   });
 }
 
-function getUrl(stopId) {
-  return `${TRIMET_URL}appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
+function getArrivalsUrl(stopId) {
+  return `${ARRIVALS_URL}appID=${TRIMET_API_KEY}&locIDs=${stopId}`;
 }
 
 function parseLineSymbol(arrival) {

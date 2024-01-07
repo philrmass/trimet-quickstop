@@ -5,9 +5,12 @@ import {
   getRouteNames,
   getStops,
 } from '../routes';
+import { getRouteStops } from '../server';
+import { saveJsonFile } from 'utilities/file';
 import routeStops from '../assets/routeStops.json';
 import styles from './StopsMenu.module.css';
 
+const showUpdateStops = false;
 const routeNames = getRouteNames(routeStops);
 
 function getRandomItem(items) {
@@ -36,6 +39,11 @@ export default function StopsMenu({
   useEffect(() => {
     updateOptions(routeStops, routeIndex, directionIndex);
   }, [routeIndex, directionIndex]);
+
+  const handleUpdateStops = () => {
+    getRouteStops().then((stops) => saveJsonFile('routeStops.json', stops));
+    onClose();
+  };
 
   const handleSelectRoute = (index) => {
     setRouteIndex(index);
@@ -177,6 +185,18 @@ export default function StopsMenu({
     );
   };
 
+  const buildUpdateStops = () => {
+    if (!showUpdateStops) {
+      return <div />;
+    }
+
+    return (
+      <Button onClick={handleUpdateStops}>
+        Update Stops
+      </Button>
+    );
+  };
+
   const buildRandomStop = () => (
     <Button onClick={handleSetRandom}>
       Random Stop
@@ -188,6 +208,7 @@ export default function StopsMenu({
   return (
     <div className={styles.menu}>
       <div className={styles.buttons}>
+        {buildUpdateStops()} 
         <Button onClick={onClose}>X</Button>
       </div>
       {buildStopPicker()}

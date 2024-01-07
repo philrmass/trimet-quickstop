@@ -1,13 +1,13 @@
 {
   "private": true,
   "name": "trimet-quickstop",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "preact build --no-prerender",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider preact build --no-prerender",
     "deploy": "gh-pages -d build",
     "eslint": "eslint 'src/**'",
-    "dev": "DEV=true preact watch --clear=false",
+    "dev": "DEV=true NODE_OPTIONS=--openssl-legacy-provider preact watch --clear=false",
     "lint": "yarn eslint && yarn stylelint",
     "predeploy": "yarn build",
     "serve": "sirv build --port 8080 --cors --single",
@@ -27,6 +27,6 @@
     "preact-render-to-string": "^5.1.2",
     "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0",
-    "utilities": "https://github.com/philrmass/utilities#v0.3.1"
+    "utilities": "https://github.com/philrmass/utilities#v0.12.3"
   }
 }
